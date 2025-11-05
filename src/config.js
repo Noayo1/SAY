@@ -1,7 +1,7 @@
 // config.js
 export const siteConfig = {
-  companyName: "SAY",
-  tagline: "Your Company Tagline",
+  companyName: "SAY CREATIVE",
+  tagline: "Creative Solutions for Modern Brands",
   logo: "/logo.png",
 
   colors: {
@@ -11,9 +11,9 @@ export const siteConfig = {
   },
 
   contact: {
-    email: "info@say.com",
-    phone: "+1234567890",
-    address: "123 Business Street, City, Country",
+    email: "studiosay08@gmail.com",
+    phone: "0545866252",
+    address: "נורדאו 13 אשדוד",
   },
 
   social: {
@@ -24,7 +24,7 @@ export const siteConfig = {
 
   navigation: [
     { name: "Home", path: "/" },
-    { name: "Projects", path: "/projects" },
+    { name: "Work", path: "/work" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ],
