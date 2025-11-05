@@ -2,7 +2,6 @@
 
 export default function ScrollingBanner({
   text = "COME JOIN US",
-  icon = "→",
   speed = "30s",
   bgColor = "bg-white",
   textColor = "text-black",
@@ -23,9 +22,6 @@ export default function ScrollingBanner({
               >
                 {text}
               </span>
-              <span className={`text-2xl md:text-4xl ${textColor} px-6`}>
-                {icon}
-              </span>
             </div>
           ))}
         </div>
@@ -40,9 +36,6 @@ export default function ScrollingBanner({
                 className={`text-2xl md:text-4xl font-light tracking-wider ${textColor} px-6`}
               >
                 {text}
-              </span>
-              <span className={`text-2xl md:text-4xl ${textColor} px-6`}>
-                {icon}
               </span>
             </div>
           ))}

@@ -7,33 +7,56 @@ import { siteConfig } from "@/config";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Smooth scroll to section
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Trigger click to open the accordion
+      const button = element.querySelector("button");
+      if (button) {
+        button.click();
+      }
+    }
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src={siteConfig.logo}
               alt={siteConfig.companyName}
-              width={200}
-              height={60}
-              className="h-18 w-auto"
+              width={250}
+              height={100}
+              className="h-20 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {siteConfig.navigation.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className="text-gray-700 hover:text-blue-600 transition"
-              >
-                {item.name}
-              </Link>
-            ))}
+            <button
+              onClick={() => scrollToSection("work")}
+              className="text-gray-700 hover:text-black transition font-medium"
+            >
+              WORK
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-gray-700 hover:text-black transition font-medium"
+            >
+              ABOUT
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="text-gray-700 hover:text-black transition font-medium"
+            >
+              CONTACT
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -69,16 +92,24 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden pb-4">
-            {siteConfig.navigation.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className="block py-2 text-gray-700 hover:text-blue-600"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <button
+              onClick={() => scrollToSection("work")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-black font-medium"
+            >
+              WORK
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-black font-medium"
+            >
+              ABOUT
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-black font-medium"
+            >
+              CONTACT
+            </button>
           </div>
         )}
       </div>
