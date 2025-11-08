@@ -54,18 +54,20 @@ export default function Home() {
         <AccordionSection title="ABOUT" id="about">
           <div className="max-w-4xl">
             <p className="text-xl md:text-2xl leading-relaxed mb-6">
-              SAY Creative is a brand design studio that partners with industry
-              leaders to create meaningful brands with purpose.
+              We are SAY CREATIVE a young, passionate team that lives and
+              breathes design, branding, and digital marketing.
             </p>
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-              We believe in the power of strategic thinking combined with
-              beautiful execution. Our approach focuses on understanding your
-              audience, defining your unique value, and bringing it to life
-              through compelling design.
-            </p>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              From brand strategy to visual identity, packaging to digital
-              experiences, we craft brands that resonate and endure.
+              We believe that great visuals aren’t just about looking good -
+              they’re about identity, connection, and emotion. Every brand we
+              work with gets a personal, thoughtful process that starts with
+              understanding its story, values, and vision, and ends with precise
+              branding, strong visual language, and a digital presence that
+              drives real results. From branding and design to social media
+              management and paid advertising, we handle everything your
+              business needs to stand out - and stand out right. In a world full
+              of noise, we make sure your brand gets noticed for all the right
+              reasons.
             </p>
           </div>
         </AccordionSection>
