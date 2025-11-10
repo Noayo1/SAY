@@ -113,7 +113,7 @@ export default function Home() {
                       href={siteConfig.social.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition"
+                      className="w-8 h-12 text-black flex items-center justify-center hover:text-gray-800 transition"
                       aria-label="Instagram"
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@ export default function Home() {
                       href={siteConfig.social.tiktok}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition"
+                      className="w-8 h-12 text-black flex items-center justify-center hover:text-gray-800 transition"
                       aria-label="TikTok"
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -143,7 +143,7 @@ export default function Home() {
                       href={siteConfig.social.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition"
+                      className="w-8 h-11 text-black flex items-center justify-center hover:text-gray-800 transition"
                       aria-label="WhatsApp"
                     >
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
