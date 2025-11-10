@@ -13,13 +13,13 @@ export const siteConfig = {
   contact: {
     email: "studiosay08@gmail.com",
     phone: "0545866252",
-    address: "נורדאו 13 אשדוד",
+    address: "Nordau 13, Ashdod",
   },
 
   social: {
-    instagram: "https://instagram.com/say",
+    instagram: "https://instagram.com/say___creative",
     tiktok: "https://tiktok.com/@say",
-    whatsapp: "https://wa.me/1234567890",
+    whatsapp: "https://wa.me/0545866252",
   },
 
   navigation: [

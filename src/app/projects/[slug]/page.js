@@ -128,8 +128,9 @@ export default async function ProjectPage({ params }) {
                   {/* Text Block - Right - TRANSPARENT */}
                   <div className="aspect-square rounded-lg p-6 md:p-8 lg:p-12 flex items-center justify-center">
                     <p
-                      className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed whitespace-pre-line text-right"
+                      lang="he"
                       dir="rtl"
+                      className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed whitespace-pre-line text-right"
                     >
                       {section.text}
                     </p>
@@ -182,6 +183,34 @@ export default async function ProjectPage({ params }) {
               );
             }
 
+            // 5. TEXT ONLY SECTION - NEW! ✨
+            if (section.type === "text-only") {
+              return (
+                <div
+                  key={index}
+                  className={`max-w-4xl mx-auto px-8 py-16 mb-8 ${
+                    section.align === "center"
+                      ? "text-center"
+                      : section.align === "right"
+                      ? "text-right"
+                      : "text-left"
+                  }`}
+                >
+                  <p
+                    lang={section.lang || "he"}
+                    dir={
+                      section.align === "right" || section.lang === "he"
+                        ? "rtl"
+                        : "ltr"
+                    }
+                    className="text-2xl md:text-3xl lg:text-4xl leading-relaxed whitespace-pre-line"
+                  >
+                    {section.text}
+                  </p>
+                </div>
+              );
+            }
+
             return null;
           })}
 
@@ -224,8 +253,9 @@ export default async function ProjectPage({ params }) {
                 return (
                   <div key={index} className="max-w-4xl mx-auto">
                     <p
-                      className="text-lg md:text-xl text-gray-700 leading-relaxed whitespace-pre-line text-right"
+                      lang="he"
                       dir="rtl"
+                      className="text-lg md:text-xl text-gray-700 leading-relaxed whitespace-pre-line text-right"
                     >
                       {item.content}
                     </p>
