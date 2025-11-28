@@ -29,18 +29,13 @@ export default function AccordionSection({
         </div>
       </button>
 
-      {/* Expandable Content */}
+      {/* Expandable Content - Full display on all devices */}
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[5000px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        {/* Scrollable container for WORK section only */}
-        <div
-          className={`pb-12 md:pb-16 ${title === "WORK" ? "overflow-y-auto max-h-[70vh] pr-2" : ""}`}
-        >
-          {children}
-        </div>
+        <div className="pb-12 md:pb-16">{children}</div>
       </div>
     </div>
   );
