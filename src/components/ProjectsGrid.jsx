@@ -39,7 +39,7 @@ export default async function ProjectsGrid() {
   ];
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {allProjects.map((project) => (
         <Link
           key={project.source === "sanity" ? project._id : project.id}
@@ -59,21 +59,25 @@ export default async function ProjectsGrid() {
             ) : (
               // Placeholder if no thumbnail
               <div className="w-full h-full flex items-center justify-center bg-gray-200 group-hover:bg-gray-300 transition">
-                <div className="text-center p-8">
-                  <p className="text-2xl font-bold text-gray-600 mb-2">
+                <div className="text-center p-4 sm:p-8">
+                  <p className="text-xl sm:text-2xl font-bold text-gray-600 mb-2">
                     {project.title}
                   </p>
-                  <p className="text-sm text-gray-500">Click to view</p>
+                  <p className="text-xs sm:text-sm text-gray-500">
+                    Click to view
+                  </p>
                 </div>
               </div>
             )}
           </div>
 
           {/* Project Info */}
-          <h3 className="text-xl font-semibold mb-1 group-hover:underline">
+          <h3 className="text-lg sm:text-xl font-semibold mb-1 group-hover:underline">
             {project.title}
           </h3>
-          <p className="text-gray-600">{project.category}</p>
+          <p className="text-sm sm:text-base text-gray-600">
+            {project.category}
+          </p>
         </Link>
       ))}
     </div>
