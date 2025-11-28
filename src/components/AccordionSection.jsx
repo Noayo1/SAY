@@ -1,7 +1,12 @@
 "use client";
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function AccordionSection({ title, children, defaultOpen = false, id }) {
+export default function AccordionSection({
+  title,
+  children,
+  defaultOpen = false,
+  id,
+}) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -23,14 +28,17 @@ export default function AccordionSection({ title, children, defaultOpen = false,
           </div>
         </div>
       </button>
-      
+
       {/* Expandable Content */}
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? "max-h-[5000px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="pb-12 md:pb-16">
+        {/* Scrollable container for WORK section only */}
+        <div
+          className={`pb-12 md:pb-16 ${title === "WORK" ? "overflow-y-auto max-h-[70vh] pr-2" : ""}`}
+        >
           {children}
         </div>
       </div>
