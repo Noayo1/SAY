@@ -3,6 +3,11 @@ import { urlFor } from "@/sanity/lib/image";
 import { projects } from "@/data/projects";
 import ProjectsPageClient from "@/components/ProjectsPageClient";
 
+export const metadata = {
+  title: "Projects - SAY Creative",
+  description: "Selected work by SAY Creative.",
+};
+
 async function getSanityProjects() {
   try {
     const sanityProjects = await client.fetch(
@@ -21,7 +26,7 @@ async function getSanityProjects() {
   }
 }
 
-export default async function Home() {
+export default async function ProjectsPage() {
   const sanityProjects = await getSanityProjects();
 
   const allProjects = [
@@ -34,23 +39,5 @@ export default async function Home() {
     })),
   ];
 
-  return (
-    <>
-      {/* Hero - Full Screen Video */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
-      </section>
-
-      {/* Projects with sidebar filter */}
-      <ProjectsPageClient projects={allProjects} noPadTop />
-    </>
-  );
+  return <ProjectsPageClient projects={allProjects} />;
 }
