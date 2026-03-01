@@ -27,7 +27,7 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
     <div className={`${noPadTop ? "pt-12" : "pt-28"} pb-20`}>
       <div className="flex">
         {/* Sidebar */}
-        <nav className="hidden lg:block w-56 shrink-0 pl-40 pt-2">
+        <nav className="hidden lg:block w-56 shrink-0 pl-40 pt-2 mr-10">
           <ul className="space-y-3">
             {categories.map((cat) => (
               <li key={cat}>
@@ -64,15 +64,15 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
         </div>
 
         {/* Grid */}
-        <div className="flex-1 pr-24 sm:pr-28 lg:pr-40 pl-8 sm:pl-12 lg:pl-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+        <div className="flex-1 px-4 sm:px-8 lg:pl-12 lg:pr-40">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
             {filtered.map((project) => (
               <Link
                 key={project.source === "sanity" ? project._id : project.id}
                 href={`/projects/${project.slug}`}
                 className="group"
               >
-                <div className="aspect-[3/4] bg-neutral-100 overflow-hidden">
+                <div className="aspect-square sm:aspect-[3/4] bg-neutral-100 overflow-hidden">
                   {project.thumbnail ? (
                     <Image
                       src={project.thumbnail}

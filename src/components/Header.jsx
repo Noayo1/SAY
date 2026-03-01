@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -7,15 +8,29 @@ import { siteConfig } from "@/config";
 export default function Header() {
   const pathname = usePathname();
   const isDark = pathname === "/studio";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > window.innerHeight * 0.8);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const textColor = isDark ? "text-white" : "text-black";
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled ? "bg-white" : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-14 lg:h-20">
           <Link
             href="/projects"
-            className={`text-sm font-medium tracking-widest uppercase ${textColor} hover:opacity-60 transition`}
+            className={`text-xs lg:text-sm font-medium tracking-widest uppercase ${textColor} hover:opacity-60 transition`}
           >
             Projects
           </Link>
@@ -26,14 +41,14 @@ export default function Header() {
               alt={siteConfig.companyName}
               width={280}
               height={100}
-              className={`h-20 w-auto ${isDark ? "invert" : ""}`}
+              className={`h-14 lg:h-20 w-auto ${isDark ? "invert" : ""}`}
               priority
             />
           </Link>
 
           <Link
             href="/studio"
-            className={`text-sm font-medium tracking-widest uppercase ${textColor} hover:opacity-60 transition`}
+            className={`text-xs lg:text-sm font-medium tracking-widest uppercase ${textColor} hover:opacity-60 transition`}
           >
             Studio
           </Link>

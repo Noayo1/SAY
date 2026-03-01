@@ -36,8 +36,8 @@ export default async function Home() {
 
   return (
     <>
-      {/* Hero - Full Screen Video */}
-      <section className="relative h-screen w-full overflow-hidden">
+      {/* Hero - Full Screen Video (sticky so projects overlap it) */}
+      <section className="sticky top-0 h-screen w-full overflow-hidden z-0">
         <video
           autoPlay
           muted
@@ -50,7 +50,9 @@ export default async function Home() {
       </section>
 
       {/* Projects with sidebar filter */}
-      <ProjectsPageClient projects={allProjects} noPadTop />
+      <div className="relative z-10 bg-white">
+        <ProjectsPageClient projects={allProjects} noPadTop />
+      </div>
     </>
   );
 }
