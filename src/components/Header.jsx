@@ -10,7 +10,7 @@ export default function Header() {
   const textColor = isDark ? "text-white" : "text-black";
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50">
+    <header className="absolute top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
         <div className="flex justify-between items-center h-20">
           <Link
