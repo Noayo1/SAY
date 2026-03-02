@@ -4,12 +4,6 @@ export const siteConfig = {
   tagline: "Creative Solutions for Modern Brands",
   logo: "/logo.png",
 
-  colors: {
-    primary: "#1a73e8",
-    secondary: "#34a853",
-    accent: "#fbbc04",
-  },
-
   contact: {
     email: "studiosay08@gmail.com",
     phone: "+972545866252",
@@ -21,11 +15,4 @@ export const siteConfig = {
     tiktok: "https://tiktok.com/@say",
     whatsapp: "https://wa.me/+972545866252",
   },
-
-  navigation: [
-    { name: "Home", path: "/" },
-    { name: "Work", path: "/work" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-  ],
 };
