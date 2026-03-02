@@ -15,7 +15,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight * 0.8);
+      setScrolled(window.scrollY > window.innerHeight - 1);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled || isProjectPage ? "bg-white" : "bg-transparent"
+        scrolled || isProjectsSection ? "bg-white" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">

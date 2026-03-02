@@ -27,7 +27,7 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
     <div className={`${noPadTop ? "pt-12" : "pt-28"} pb-20`}>
       <div className="flex">
         {/* Sidebar */}
-        <nav className="hidden lg:block w-56 shrink-0 pl-40 pt-2 mr-10">
+        <nav className="hidden lg:block w-56 shrink-0 pl-40 pt-2 mr-10 sticky top-20 self-start">
           <ul className="space-y-3">
             {categories.map((cat) => (
               <li key={cat}>
