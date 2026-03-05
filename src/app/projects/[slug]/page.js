@@ -274,10 +274,10 @@ export default async function ProjectPage({ params }) {
                 // Block Type 4: Image + Text
                 if (block._type === "imageText") {
                   return (
-                    <div key={index} className="grid grid-cols-2 gap-8">
+                    <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {block.imagePosition === "left" ? (
                         <>
-                          <div className="relative aspect-square rounded-lg overflow-hidden">
+                          <div className="relative aspect-square rounded-lg overflow-hidden order-2 md:order-none">
                             <Image
                               src={urlFor(block.image).url()}
                               alt={`${project.title}`}
@@ -285,7 +285,7 @@ export default async function ProjectPage({ params }) {
                               className="object-cover"
                             />
                           </div>
-                          <div className="aspect-square flex items-center justify-center p-8">
+                          <div className="md:aspect-square flex items-center justify-center p-6 md:p-8 order-1 md:order-none">
                             <p
                               lang="he"
                               dir="rtl"
@@ -297,7 +297,7 @@ export default async function ProjectPage({ params }) {
                         </>
                       ) : (
                         <>
-                          <div className="aspect-square flex items-center justify-center p-8">
+                          <div className="md:aspect-square flex items-center justify-center p-6 md:p-8">
                             <p
                               lang="he"
                               dir="rtl"
@@ -436,8 +436,8 @@ export default async function ProjectPage({ params }) {
 
             if (section.type === "text-image-row") {
               return (
-                <div key={index} className="grid grid-cols-2 gap-8 mb-8">
-                  <div className="aspect-square rounded-lg overflow-hidden">
+                <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div className="aspect-square rounded-lg overflow-hidden order-2 md:order-none">
                     <Image
                       src={section.image}
                       alt={`${project.title}`}
@@ -446,7 +446,7 @@ export default async function ProjectPage({ params }) {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="aspect-square rounded-lg p-6 md:p-8 lg:p-12 flex items-center justify-center">
+                  <div className="md:aspect-square rounded-lg p-6 md:p-8 lg:p-12 flex items-center justify-center order-1 md:order-none">
                     <p
                       lang="he"
                       dir="rtl"
