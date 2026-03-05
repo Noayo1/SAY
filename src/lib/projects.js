@@ -29,7 +29,7 @@ export async function getAllProjects() {
       ...p,
       source: "sanity",
       slug: p.slug.current,
-      thumbnail: p.thumbnail ? urlFor(p.thumbnail).url() : null,
+      thumbnail: p.thumbnail ? urlFor(p.thumbnail).width(500).quality(80).auto("format").url() : null,
     })),
   ];
 }

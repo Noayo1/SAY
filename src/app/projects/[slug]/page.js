@@ -5,6 +5,8 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = true;
+
 // Fetch project data from Sanity
 async function getProjectFromSanity(slug) {
   try {
@@ -107,7 +109,7 @@ export default async function ProjectPage({ params }) {
         {/* Back Button */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Link
-            href="/#work"
+            href="/projects"
             className="inline-flex items-center text-gray-600 hover:text-black transition"
           >
             <svg
@@ -165,9 +167,10 @@ export default async function ProjectPage({ params }) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
             <div className="w-full aspect-video relative rounded-lg overflow-hidden">
               <Image
-                src={urlFor(project.mainImage).url()}
+                src={urlFor(project.mainImage).width(1400).quality(80).auto("format").url()}
                 alt={project.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 1280px"
                 className="object-cover"
                 priority
               />
@@ -197,9 +200,10 @@ export default async function ProjectPage({ params }) {
                     <div key={index} className="w-full">
                       <div className="relative aspect-video rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.image).url()}
+                          src={urlFor(block.image).width(1400).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 1}`}
                           fill
+                          sizes="(max-width: 768px) 100vw, 1280px"
                           className="object-cover"
                         />
                       </div>
@@ -213,17 +217,19 @@ export default async function ProjectPage({ params }) {
                     <div key={index} className="grid grid-cols-2 gap-8">
                       <div className="relative aspect-square rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.imageLeft).url()}
+                          src={urlFor(block.imageLeft).width(700).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 1}`}
                           fill
+                          sizes="(max-width: 768px) 50vw, 600px"
                           className="object-cover"
                         />
                       </div>
                       <div className="relative aspect-square rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.imageRight).url()}
+                          src={urlFor(block.imageRight).width(700).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 2}`}
                           fill
+                          sizes="(max-width: 768px) 50vw, 600px"
                           className="object-cover"
                         />
                       </div>
@@ -237,33 +243,37 @@ export default async function ProjectPage({ params }) {
                     <div key={index} className="grid grid-cols-2 gap-8">
                       <div className="relative aspect-square rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.image1).url()}
+                          src={urlFor(block.image1).width(700).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 1}`}
                           fill
+                          sizes="(max-width: 768px) 50vw, 600px"
                           className="object-cover"
                         />
                       </div>
                       <div className="relative aspect-square rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.image2).url()}
+                          src={urlFor(block.image2).width(700).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 2}`}
                           fill
+                          sizes="(max-width: 768px) 50vw, 600px"
                           className="object-cover"
                         />
                       </div>
                       <div className="relative aspect-square rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.image3).url()}
+                          src={urlFor(block.image3).width(700).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 3}`}
                           fill
+                          sizes="(max-width: 768px) 50vw, 600px"
                           className="object-cover"
                         />
                       </div>
                       <div className="relative aspect-square rounded-lg overflow-hidden">
                         <Image
-                          src={urlFor(block.image4).url()}
+                          src={urlFor(block.image4).width(700).quality(80).auto("format").url()}
                           alt={`${project.title} - Image ${index + 4}`}
                           fill
+                          sizes="(max-width: 768px) 50vw, 600px"
                           className="object-cover"
                         />
                       </div>
@@ -279,7 +289,7 @@ export default async function ProjectPage({ params }) {
                         <>
                           <div className="relative aspect-square rounded-lg overflow-hidden order-2 md:order-none">
                             <Image
-                              src={urlFor(block.image).url()}
+                              src={urlFor(block.image).width(700).quality(80).auto("format").url()}
                               alt={`${project.title}`}
                               fill
                               className="object-cover"
@@ -308,7 +318,7 @@ export default async function ProjectPage({ params }) {
                           </div>
                           <div className="relative aspect-square rounded-lg overflow-hidden">
                             <Image
-                              src={urlFor(block.image).url()}
+                              src={urlFor(block.image).width(700).quality(80).auto("format").url()}
                               alt={`${project.title}`}
                               fill
                               className="object-cover"
@@ -353,7 +363,7 @@ export default async function ProjectPage({ params }) {
         {/* Back to Projects Button */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t mt-16">
           <Link
-            href="/#work"
+            href="/projects"
             className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium"
           >
             View All Projects
@@ -369,7 +379,7 @@ export default async function ProjectPage({ params }) {
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Link
-          href="/#work"
+          href="/projects"
           className="inline-flex items-center text-gray-600 hover:text-black transition"
         >
           <svg
@@ -595,7 +605,7 @@ export default async function ProjectPage({ params }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t mt-16">
         <Link
-          href="/#work"
+          href="/projects"
           className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium"
         >
           View All Projects
