@@ -72,7 +72,7 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
                 href={`/projects/${project.slug}`}
                 className="group"
               >
-                <div className="aspect-square sm:aspect-[3/4] bg-neutral-100 overflow-hidden">
+                <div className="aspect-square sm:aspect-[3/4] bg-neutral-100 overflow-hidden relative">
                   {project.thumbnail ? (
                     <Image
                       src={project.thumbnail}
@@ -88,6 +88,17 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
                       </p>
                     </div>
                   )}
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center px-4">
+                    <h3 className="text-white text-sm sm:text-base font-medium tracking-widest uppercase text-center">
+                      {project.title}
+                    </h3>
+                    {project.category && (
+                      <p className="text-white/70 text-xs sm:text-sm italic mt-2 text-center">
+                        {project.category}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </Link>
             ))}
