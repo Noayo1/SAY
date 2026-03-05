@@ -6,7 +6,7 @@ import Link from "next/link";
 const categories = [
   "All",
   "Branding",
-  "Social",
+  "Social Media",
   "AI Production",
 ];
 

@@ -36,10 +36,9 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Branding", value: "branding" },
-          { title: "Web Design", value: "web-design" },
-          { title: "Print", value: "print" },
-          { title: "Social Media", value: "social-media" },
+          { title: "Branding", value: "Branding" },
+          { title: "Social Media", value: "Social Media" },
+          { title: "AI Production", value: "AI Production" },
         ],
       },
     },
