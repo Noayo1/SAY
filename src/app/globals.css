@@ -10,6 +10,10 @@
   --color-foreground: var(--foreground);
 }
 
+html {
+  overflow-y: scroll;
+}
+
 /* Force light mode - disable dark mode */
 body {
   background: #ffffff !important;
