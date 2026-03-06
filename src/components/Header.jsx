@@ -42,9 +42,10 @@ export default function Header() {
             <Image
               src={siteConfig.logo}
               alt={siteConfig.companyName}
-              width={280}
-              height={100}
-              className={`h-14 lg:h-20 w-auto ${isDark ? "invert" : ""}`}
+              width={140}
+              height={56}
+              style={{ height: "auto", maxHeight: "3.5rem", width: "auto" }}
+              className={`lg:!max-h-20 ${isDark ? "invert" : ""}`}
               priority
             />
           </Link>
