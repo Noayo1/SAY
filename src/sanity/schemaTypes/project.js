@@ -43,6 +43,20 @@ export default {
       },
     },
     {
+      name: "templateType",
+      title: "Template Type",
+      type: "string",
+      description: "Choose the page layout for this project.",
+      options: {
+        list: [
+          { title: "Branding", value: "branding" },
+          { title: "Social Media", value: "social media" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "branding",
+    },
+    {
       name: "thumbnail",
       title: "Thumbnail Image (Project Grid)",
       type: "image",
@@ -58,12 +72,14 @@ export default {
       title: "Hero Media (Upload image or video)",
       type: "file",
       description: "Upload one image or video. Max ~20MB for videos — if too large, use the URL field below instead.",
+      hidden: ({ parent }) => parent?.templateType === "social media",
     },
     {
       name: "heroVideoUrl",
       title: "Hero Video URL (for large videos)",
       type: "url",
       description: "Paste a video link (Cloudinary, Google Drive, etc.). Use this instead of uploading if the file is too large.",
+      hidden: ({ parent }) => parent?.templateType === "social media",
     },
     {
       name: "description",
@@ -72,12 +88,14 @@ export default {
       rows: 4,
       description:
         "Short description that appears after the hero image (optional)",
+      hidden: ({ parent }) => parent?.templateType === "social media",
     },
     {
       name: "contentBlocks",
       title: "Content Blocks",
       type: "array",
       description: "Add and arrange content blocks to build your project page",
+      hidden: ({ parent }) => parent?.templateType === "social media",
       of: [
         // Block 1: Single Full Width Image
         {
@@ -367,6 +385,91 @@ export default {
               return {
                 title: `Text Block (${alignment})`,
                 subtitle: text?.substring(0, 60) + "...",
+              };
+            },
+          },
+        },
+      ],
+    },
+    {
+      name: "socialMediaItems",
+      title: "Social Media Items",
+      type: "array",
+      description: "Add images and videos for the social media grid. Only used when Template Type is 'Social Media'.",
+      hidden: ({ parent }) => parent?.templateType !== "social media",
+      of: [
+        {
+          type: "object",
+          name: "socialMediaItem",
+          title: "Media Item",
+          fields: [
+            {
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: { accept: "image/*", hotspot: true },
+              description: "Upload an image (JPG, PNG, WebP).",
+            },
+            {
+              name: "videoFile",
+              title: "Upload Video (max ~20MB)",
+              type: "file",
+              options: { accept: "video/*" },
+              description: "Upload a video from your computer. For larger files, use the URL field below.",
+            },
+            {
+              name: "videoUrl",
+              title: "Video URL",
+              type: "url",
+              description: "Paste a hosted video URL (Cloudinary, Google Drive, etc.). Used if no file is uploaded.",
+            },
+            {
+              name: "postLink",
+              title: "Post Link (Instagram, TikTok, etc.)",
+              type: "url",
+              description: "Optional. Clicking on this item will open this link in a new tab.",
+            },
+            {
+              name: "size",
+              title: "Size",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+                layout: "radio",
+              },
+              initialValue: "1/1",
+            },
+            {
+              name: "column",
+              title: "Column",
+              type: "string",
+              description: "Choose which side of the grid this item appears on.",
+              options: {
+                list: [
+                  { title: "Left", value: "left" },
+                  { title: "Right", value: "right" },
+                ],
+                layout: "radio",
+              },
+              initialValue: "left",
+            },
+          ],
+          preview: {
+            select: {
+              media: "image",
+              size: "size",
+              column: "column",
+              postLink: "postLink",
+            },
+            prepare({ media, size, column, postLink }) {
+              return {
+                title: `${(column || "left").charAt(0).toUpperCase() + (column || "left").slice(1)} — ${size || "1/1"}`,
+                subtitle: postLink ? `Links to: ${postLink}` : "No post link",
+                media: media,
               };
             },
           },

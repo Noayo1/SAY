@@ -18,6 +18,7 @@ async function getProjectFromSanity(slug) {
         client,
         year,
         category,
+        templateType,
         heroVideoUrl,
         "heroMediaUrl": heroMedia.asset->url,
         "heroMediaType": heroMedia.asset->mimeType,
@@ -25,6 +26,10 @@ async function getProjectFromSanity(slug) {
         contentBlocks[]{
           ...,
           "videoFileUrl": video.asset->url
+        },
+        socialMediaItems[]{
+          ...,
+          "videoFileUrl": videoFile.asset->url
         }
       }`,
       { slug }
@@ -107,7 +112,131 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
-  // SANITY PROJECT RENDERING
+  // SOCIAL MEDIA TEMPLATE RENDERING
+  if (isSanityProject && project.templateType === "social media") {
+    const sizeMap = {
+      "1/1": "aspect-square",
+      "9/16": "aspect-[9/16]",
+      "16/9": "aspect-video",
+    };
+
+    return (
+      <div className="min-h-screen bg-white">
+        {/* Back Button + Title */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+          <Link
+            href="/projects"
+            className="inline-flex items-center text-gray-600 hover:text-black transition"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Projects
+          </Link>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            {project.title}
+          </h1>
+        </div>
+
+        {/* Two-Column Grid */}
+        {project.socialMediaItems && project.socialMediaItems.length > 0 && (() => {
+          const leftItems = project.socialMediaItems.filter((item) => item.column !== "right");
+          const rightItems = project.socialMediaItems.filter((item) => item.column === "right");
+
+          const renderItem = (item, index) => {
+            const aspectClass = sizeMap[item.size] || "aspect-square";
+            const videoSrc = item.videoUrl || item.videoFileUrl;
+            const hasImage = !!item.image;
+            const hasVideo = !!videoSrc;
+
+            const mediaContent = hasVideo ? (
+              <div className={`relative ${aspectClass} rounded-lg overflow-hidden`}>
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src={videoSrc} />
+                </video>
+                {item.postLink && (
+                  <div className="absolute bottom-3 right-3 bg-black/50 rounded-full p-1.5">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z M5 5h5V3H3v18h18v-7h-2v5H5V5z" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ) : hasImage ? (
+              <div className={`relative ${aspectClass} rounded-lg overflow-hidden`}>
+                <Image
+                  src={urlFor(item.image).width(600).quality(80).auto("format").url()}
+                  alt={`${project.title} - ${index + 1}`}
+                  fill
+                  sizes="50vw"
+                  className="object-cover"
+                />
+                {item.postLink && (
+                  <div className="absolute bottom-3 right-3 bg-black/50 rounded-full p-1.5">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z M5 5h5V3H3v18h18v-7h-2v5H5V5z" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ) : null;
+
+            if (!mediaContent) return null;
+
+            if (item.postLink) {
+              return (
+                <a
+                  key={index}
+                  href={item.postLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mb-4 group cursor-pointer"
+                >
+                  {mediaContent}
+                </a>
+              );
+            }
+
+            return (
+              <div key={index} className="mb-4">
+                {mediaContent}
+              </div>
+            );
+          };
+
+          return (
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+              <div className="grid grid-cols-2 gap-4 items-start">
+                <div>{leftItems.map(renderItem)}</div>
+                <div>{rightItems.map(renderItem)}</div>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* Back to Projects */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t">
+          <Link
+            href="/projects"
+            className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium"
+          >
+            View All Projects
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // BRANDING TEMPLATE RENDERING (default)
   if (isSanityProject) {
     const aspectMap = {
       "1/1": "aspect-square",

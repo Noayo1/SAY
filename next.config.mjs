@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      ".js": [".js", ".mjs", ".cjs", ".ts"],
+    };
+    return config;
+  },
   images: {
     remotePatterns: [
       {
