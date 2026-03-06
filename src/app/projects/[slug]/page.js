@@ -18,9 +18,14 @@ async function getProjectFromSanity(slug) {
         client,
         year,
         category,
-        mainImage,
+        heroVideoUrl,
+        "heroMediaUrl": heroMedia.asset->url,
+        "heroMediaType": heroMedia.asset->mimeType,
         description,
-        contentBlocks
+        contentBlocks[]{
+          ...,
+          "videoFileUrl": video.asset->url
+        }
       }`,
       { slug }
     );
@@ -104,6 +109,53 @@ export default async function ProjectPage({ params }) {
 
   // SANITY PROJECT RENDERING
   if (isSanityProject) {
+    const aspectMap = {
+      "1/1": "aspect-square",
+      "3/4": "aspect-[3/4]",
+      "9/16": "aspect-[9/16]",
+      "16/9": "aspect-video",
+    };
+    const aspectClass = (ratio) => aspectMap[ratio] || "aspect-square";
+
+    const getEmbedUrl = (url) => {
+      if (!url) return null;
+      // YouTube
+      let match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([\w-]+)/);
+      if (match) return `https://www.youtube.com/embed/${match[1]}?autoplay=1&mute=1&loop=1&playlist=${match[1]}`;
+      // Vimeo
+      match = url.match(/vimeo\.com\/(\d+)/);
+      if (match) return `https://player.vimeo.com/video/${match[1]}?autoplay=1&muted=1&loop=1`;
+      return null;
+    };
+
+    const VideoPlayer = ({ src, aspect = "aspect-video", controls = false }) => {
+      const embedUrl = getEmbedUrl(src);
+      if (embedUrl) {
+        return (
+          <div className={`${aspect} relative rounded-lg overflow-hidden`}>
+            <iframe
+              src={embedUrl}
+              className="absolute inset-0 w-full h-full"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+            />
+          </div>
+        );
+      }
+      return (
+        <div className={`${aspect} relative rounded-lg overflow-hidden`}>
+          <video
+            {...(!controls
+              ? { autoPlay: true, muted: true, loop: true, playsInline: true }
+              : { controls: true })}
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={src} />
+          </video>
+        </div>
+      );
+    };
+
     return (
       <div className="min-h-screen bg-white">
         {/* Back Button */}
@@ -162,21 +214,37 @@ export default async function ProjectPage({ params }) {
           </div>
         </div>
 
-        {/* Hero Image */}
-        {project.mainImage && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-            <div className="w-full aspect-video relative rounded-lg overflow-hidden">
-              <Image
-                src={urlFor(project.mainImage).width(1400).quality(80).auto("format").url()}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 1280px"
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        )}
+        {/* Hero Media */}
+        {(() => {
+          const videoUrl = project.heroVideoUrl;
+          const mediaUrl = project.heroMediaUrl;
+          const isVideo = videoUrl || (project.heroMediaType && project.heroMediaType.startsWith("video/"));
+
+          if (videoUrl || (isVideo && mediaUrl)) {
+            return (
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                <VideoPlayer src={videoUrl || mediaUrl} />
+              </div>
+            );
+          }
+          if (mediaUrl) {
+            return (
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                <div className="w-full aspect-video relative rounded-lg overflow-hidden">
+                  <Image
+                    src={mediaUrl}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 1280px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            );
+          }
+          return null;
+        })()}
 
         {/* Description Text */}
         {project.description && (
@@ -211,72 +279,75 @@ export default async function ProjectPage({ params }) {
                   );
                 }
 
-                // Block Type 2: Two Images Side by Side
+                // Full Width Video
+                if (block._type === "fullWidthVideo") {
+                  const src = block.videoUrl || block.videoFileUrl;
+                  if (!src) return null;
+                  return (
+                    <div key={index} className="w-full">
+                      <VideoPlayer src={src} controls={block.autoplay === false} />
+                    </div>
+                  );
+                }
+
+                // Block Type 2: Two Media Side by Side
                 if (block._type === "twoImages") {
+                  const aspect = aspectClass(block.aspectRatio);
+                  const renderSlot = (image, videoUrl, alt) => {
+                    if (image) {
+                      return (
+                        <div className={`relative ${aspect} rounded-lg overflow-hidden`}>
+                          <Image
+                            src={urlFor(image).width(700).quality(80).auto("format").url()}
+                            alt={alt}
+                            fill
+                            sizes="(max-width: 768px) 50vw, 600px"
+                            className="object-cover"
+                          />
+                        </div>
+                      );
+                    }
+                    if (videoUrl) {
+                      return <VideoPlayer src={videoUrl} aspect={aspect} />;
+                    }
+                    return null;
+                  };
                   return (
                     <div key={index} className="grid grid-cols-2 gap-8">
-                      <div className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.imageLeft).width(700).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 1}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 600px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.imageRight).width(700).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 2}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 600px"
-                          className="object-cover"
-                        />
-                      </div>
+                      {renderSlot(block.imageLeft, block.videoLeftUrl, `${project.title} - ${index + 1}`)}
+                      {renderSlot(block.imageRight, block.videoRightUrl, `${project.title} - ${index + 2}`)}
                     </div>
                   );
                 }
 
                 // Block Type 3: Four Images Grid
                 if (block._type === "fourImagesGrid") {
+                  const aspect = aspectClass(block.aspectRatio);
+                  const renderGridSlot = (image, videoUrl, alt) => {
+                    if (image) {
+                      return (
+                        <div className={`relative ${aspect} rounded-lg overflow-hidden`}>
+                          <Image
+                            src={urlFor(image).width(700).quality(80).auto("format").url()}
+                            alt={alt}
+                            fill
+                            sizes="(max-width: 768px) 50vw, 600px"
+                            className="object-cover"
+                          />
+                        </div>
+                      );
+                    }
+                    if (videoUrl) {
+                      return <VideoPlayer src={videoUrl} aspect={aspect} />;
+                    }
+                    return null;
+                  };
                   return (
                     <div key={index} className="grid grid-cols-2 gap-8">
-                      <div className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.image1).width(700).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 1}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 600px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.image2).width(700).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 2}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 600px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.image3).width(700).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 3}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 600px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="relative aspect-square rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.image4).width(700).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 4}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 600px"
-                          className="object-cover"
-                        />
-                      </div>
+                      {renderGridSlot(block.image1, block.video1Url, `${project.title} - ${index + 1}`)}
+                      {renderGridSlot(block.image2, block.video2Url, `${project.title} - ${index + 2}`)}
+                      {renderGridSlot(block.image3, block.video3Url, `${project.title} - ${index + 3}`)}
+                      {renderGridSlot(block.image4, block.video4Url, `${project.title} - ${index + 4}`)}
                     </div>
                   );
                 }

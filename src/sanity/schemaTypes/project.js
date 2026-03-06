@@ -46,22 +46,24 @@ export default {
       name: "thumbnail",
       title: "Thumbnail Image (Project Grid)",
       type: "image",
-      description: "This image appears in the projects grid on the homepage",
+      description: "This image appears in the projects grid on the homepage. Images only (JPG, PNG, WebP).",
       options: {
         hotspot: true,
+        accept: "image/*",
       },
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "mainImage",
-      title: "Hero Image (Project Page)",
-      type: "image",
-      description:
-        "Main hero image shown at the top of the individual project page",
-      options: {
-        hotspot: true,
-      },
-      validation: (Rule) => Rule.required(),
+      name: "heroMedia",
+      title: "Hero Media (Upload image or video)",
+      type: "file",
+      description: "Upload one image or video. Max ~20MB for videos — if too large, use the URL field below instead.",
+    },
+    {
+      name: "heroVideoUrl",
+      title: "Hero Video URL (for large videos)",
+      type: "url",
+      description: "Paste a video link (Cloudinary, Google Drive, etc.). Use this instead of uploading if the file is too large.",
     },
     {
       name: "description",
@@ -88,6 +90,7 @@ export default {
               name: "image",
               title: "Image",
               type: "image",
+              options: { accept: "image/*" },
               validation: (Rule) => Rule.required(),
             },
           ],
@@ -104,79 +107,171 @@ export default {
           },
         },
 
-        // Block 2: Two Images Side by Side
+        // Block 1b: Full Width Video
+        {
+          type: "object",
+          name: "fullWidthVideo",
+          title: "Full Width Video",
+          icon: () => "🎬",
+          fields: [
+            {
+              name: "videoUrl",
+              title: "Video URL",
+              type: "url",
+              description: "Paste a video link (Cloudinary, Google Drive, etc.). Recommended for large files.",
+            },
+            {
+              name: "video",
+              title: "Or Upload Video (max ~20MB)",
+              type: "file",
+              options: {
+                accept: "video/*",
+              },
+              description: "Direct upload for small videos. Use the URL field above for larger files.",
+            },
+            {
+              name: "autoplay",
+              title: "Autoplay (muted, loops)",
+              type: "boolean",
+              initialValue: true,
+              description: "If enabled, video autoplays muted and loops. If disabled, shows play controls.",
+            },
+          ],
+          preview: {
+            prepare() {
+              return {
+                title: "Full Width Video",
+              };
+            },
+          },
+        },
+
+        // Block 2: Two Media Side by Side
         {
           type: "object",
           name: "twoImages",
-          title: "Two Images Side by Side",
+          title: "Two Media Side by Side",
           icon: () => "🖼️🖼️",
           fields: [
             {
               name: "imageLeft",
               title: "Left Image",
               type: "image",
-              validation: (Rule) => Rule.required(),
+              options: { hotspot: true, accept: "image/*" },
+              description: "Upload an image, or leave empty and use the video field below instead.",
+            },
+            {
+              name: "videoLeftUrl",
+              title: "Left Video URL",
+              type: "url",
+              description: "Paste a video link for the left slot (used if no image is set).",
             },
             {
               name: "imageRight",
               title: "Right Image",
               type: "image",
-              validation: (Rule) => Rule.required(),
+              options: { hotspot: true, accept: "image/*" },
+              description: "Upload an image, or leave empty and use the video field below instead.",
+            },
+            {
+              name: "videoRightUrl",
+              title: "Right Video URL",
+              type: "url",
+              description: "Paste a video link for the right slot (used if no image is set).",
+            },
+            {
+              name: "aspectRatio",
+              title: "Aspect Ratio",
+              description: "Choose the display shape for both slots.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+              },
+              initialValue: "1/1",
             },
           ],
           preview: {
             select: {
               media1: "imageLeft",
-              media2: "imageRight",
+              aspectRatio: "aspectRatio",
             },
-            prepare({ media1, media2 }) {
+            prepare({ media1, aspectRatio }) {
               return {
-                title: "Two Images Side by Side",
+                title: `Two Media (${aspectRatio || "1/1"})`,
                 media: media1,
               };
             },
           },
         },
 
-        // Block 3: Four Images Grid (2x2)
+        // Block 3: Four Media Grid (2x2)
         {
           type: "object",
           name: "fourImagesGrid",
-          title: "Four Images (2x2 Grid)",
+          title: "Four Media (2x2 Grid)",
           icon: () => "🔲",
           fields: [
             {
               name: "image1",
               title: "Image 1 (Top Left)",
               type: "image",
-              validation: (Rule) => Rule.required(),
+              options: { hotspot: true, accept: "image/*" },
+              description: "Upload an image, or leave empty and use the video field below.",
             },
+            { name: "video1Url", title: "Video 1 URL (Top Left)", type: "url", description: "Paste video link. Used if no image is set." },
             {
               name: "image2",
               title: "Image 2 (Top Right)",
               type: "image",
-              validation: (Rule) => Rule.required(),
+              options: { hotspot: true, accept: "image/*" },
+              description: "Upload an image, or leave empty and use the video field below.",
             },
+            { name: "video2Url", title: "Video 2 URL (Top Right)", type: "url", description: "Paste video link. Used if no image is set." },
             {
               name: "image3",
               title: "Image 3 (Bottom Left)",
               type: "image",
-              validation: (Rule) => Rule.required(),
+              options: { hotspot: true, accept: "image/*" },
+              description: "Upload an image, or leave empty and use the video field below.",
             },
+            { name: "video3Url", title: "Video 3 URL (Bottom Left)", type: "url", description: "Paste video link. Used if no image is set." },
             {
               name: "image4",
               title: "Image 4 (Bottom Right)",
               type: "image",
-              validation: (Rule) => Rule.required(),
+              options: { hotspot: true, accept: "image/*" },
+              description: "Upload an image, or leave empty and use the video field below.",
+            },
+            { name: "video4Url", title: "Video 4 URL (Bottom Right)", type: "url", description: "Paste video link. Used if no image is set." },
+            {
+              name: "aspectRatio",
+              title: "Aspect Ratio",
+              description: "Choose the display shape for all slots.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+              },
+              initialValue: "1/1",
             },
           ],
           preview: {
             select: {
               media: "image1",
+              aspectRatio: "aspectRatio",
             },
-            prepare({ media }) {
+            prepare({ media, aspectRatio }) {
               return {
-                title: "Four Images Grid (2x2)",
+                title: `Four Media Grid (${aspectRatio || "1/1"})`,
                 media: media,
               };
             },
@@ -194,6 +289,7 @@ export default {
               name: "image",
               title: "Image",
               type: "image",
+              options: { accept: "image/*" },
               validation: (Rule) => Rule.required(),
             },
             {
