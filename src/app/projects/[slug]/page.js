@@ -17,7 +17,6 @@ async function getProjectFromSanity(slug) {
         client,
         year,
         categories,
-        templateType,
         heroVideoUrl,
         "heroMediaUrl": heroMedia.asset->url,
         "heroMediaType": heroMedia.asset->mimeType,
@@ -31,11 +30,6 @@ async function getProjectFromSanity(slug) {
           "video2FileUrl": video2File.asset->url,
           "video3FileUrl": video3File.asset->url,
           "video4FileUrl": video4File.asset->url
-        },
-        instagramLink,
-        socialMediaFiles[]{
-          "url": asset->url,
-          "mimeType": asset->mimeType
         }
       }`,
       { slug }
@@ -87,78 +81,6 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
-  // SOCIAL MEDIA TEMPLATE RENDERING
-  if (project.templateType === "social media") {
-    // No forced aspect ratios — items keep their original size
-
-    const igLink = project.instagramLink;
-    const allItems = (project.socialMediaFiles || []).filter((item) => item.url);
-
-    const leftItems = allItems.filter((_, i) => i % 2 === 0);
-    const rightItems = allItems.filter((_, i) => i % 2 === 1);
-
-    const renderItem = (item, index) => {
-      if (!item.url) return null;
-      const isVideo = item.mimeType && item.mimeType.startsWith("video/");
-
-      const media = isVideo ? (
-        <div className="rounded-lg overflow-hidden">
-          <video autoPlay muted loop playsInline className="w-full h-auto">
-            <source src={item.url} />
-          </video>
-        </div>
-      ) : (
-        <div className="rounded-lg overflow-hidden">
-          <img src={item.url} alt={`${project.title} - ${index + 1}`} className="w-full h-auto" />
-        </div>
-      );
-
-      if (igLink) {
-        return (
-          <a key={index} href={igLink} target="_blank" rel="noopener noreferrer" className="block mb-4">
-            {media}
-          </a>
-        );
-      }
-      return <div key={index} className="mb-4">{media}</div>;
-    };
-
-    return (
-      <div className="min-h-screen bg-white">
-        {/* Back Button + Title */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
-          <Link href="/projects" className="inline-flex items-center text-gray-600 hover:text-black transition">
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Projects
-          </Link>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{project.title}</h1>
-        </div>
-
-        {allItems.length > 0 && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-            <div className="grid grid-cols-2 gap-4 items-start">
-              <div>{leftItems.map((item, i) => renderItem(item, i))}</div>
-              <div>{rightItems.map((item, i) => renderItem(item, i))}</div>
-            </div>
-          </div>
-        )}
-
-        {/* Back to Projects */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t">
-          <Link href="/projects" className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium">
-            View All Projects
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  // BRANDING TEMPLATE RENDERING (default)
   {
     const aspectMap = {
       "1/1": "aspect-square",

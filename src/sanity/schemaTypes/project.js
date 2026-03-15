@@ -1,5 +1,3 @@
-import MultiFileUpload from "../components/MultiFileUpload";
-
 export default {
   name: "project",
   title: "Projects",
@@ -46,20 +44,6 @@ export default {
       },
     },
     {
-      name: "templateType",
-      title: "Template Type",
-      type: "string",
-      description: "Choose the page layout for this project.",
-      options: {
-        list: [
-          { title: "Branding", value: "branding" },
-          { title: "Social Media", value: "social media" },
-        ],
-        layout: "radio",
-      },
-      initialValue: "branding",
-    },
-    {
       name: "thumbnail",
       title: "Thumbnail Image (Project Grid)",
       type: "image",
@@ -75,14 +59,12 @@ export default {
       title: "Hero Media (Upload image or video)",
       type: "file",
       description: "Upload one image or video. Max ~20MB for videos — if too large, use the URL field below instead.",
-      hidden: ({ parent }) => parent?.templateType === "social media",
     },
     {
       name: "heroVideoUrl",
       title: "Hero Video URL (for large videos)",
       type: "url",
       description: "Paste a video link (Cloudinary, Google Drive, etc.). Use this instead of uploading if the file is too large.",
-      hidden: ({ parent }) => parent?.templateType === "social media",
     },
     {
       name: "description",
@@ -91,14 +73,12 @@ export default {
       rows: 4,
       description:
         "Short description that appears after the hero image (optional)",
-      hidden: ({ parent }) => parent?.templateType === "social media",
     },
     {
       name: "contentBlocks",
       title: "Content Blocks",
       type: "array",
       description: "Add and arrange content blocks to build your project page",
-      hidden: ({ parent }) => parent?.templateType === "social media",
       of: [
         // Block 1: Single Full Width Image
         {
@@ -541,24 +521,6 @@ export default {
           },
         },
       ],
-    },
-    {
-      name: "instagramLink",
-      title: "Instagram Link",
-      type: "url",
-      description: "Clicking any image or video in the grid will open this link.",
-      hidden: ({ parent }) => parent?.templateType !== "social media",
-    },
-    {
-      name: "socialMediaFiles",
-      title: "Upload Images & Videos",
-      type: "array",
-      description: "Drag & drop or select multiple images and videos at once.",
-      hidden: ({ parent }) => parent?.templateType !== "social media",
-      of: [{ type: "file" }],
-      components: {
-        input: MultiFileUpload,
-      },
     },
   ],
   preview: {
