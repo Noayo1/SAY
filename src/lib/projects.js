@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import { projects } from "@/data/projects";
+// import { projects } from "@/data/projects"; // Seed data disabled
 
 async function getSanityProjects() {
   try {
@@ -23,8 +23,10 @@ async function getSanityProjects() {
 export async function getAllProjects() {
   const sanityProjects = await getSanityProjects();
 
+  // Hardcoded seed data disabled — projects are now managed entirely via Sanity CMS
+  // To re-enable, uncomment the hardcoded line below:
+  // ...projects.map((p) => ({ ...p, source: "hardcoded" })),
   return [
-    ...projects.map((p) => ({ ...p, source: "hardcoded" })),
     ...sanityProjects.map((p) => ({
       ...p,
       source: "sanity",

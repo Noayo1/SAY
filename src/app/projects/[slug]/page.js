@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
+// import { getProjectBySlug, getAllProjectSlugs } from "@/data/projects"; // Seed data disabled
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { notFound } from "next/navigation";
@@ -25,11 +25,18 @@ async function getProjectFromSanity(slug) {
         description,
         contentBlocks[]{
           ...,
-          "videoFileUrl": video.asset->url
+          "videoFileUrl": video.asset->url,
+          "videoLeftFileUrl": videoLeftFile.asset->url,
+          "videoRightFileUrl": videoRightFile.asset->url,
+          "video1FileUrl": video1File.asset->url,
+          "video2FileUrl": video2File.asset->url,
+          "video3FileUrl": video3File.asset->url,
+          "video4FileUrl": video4File.asset->url
         },
-        socialMediaItems[]{
-          ...,
-          "videoFileUrl": videoFile.asset->url
+        instagramLink,
+        socialMediaFiles[]{
+          "url": asset->url,
+          "mimeType": asset->mimeType
         }
       }`,
       { slug }
@@ -40,12 +47,9 @@ async function getProjectFromSanity(slug) {
   }
 }
 
-// Generate static paths for all projects (both hardcoded and Sanity)
+// Generate static paths for Sanity projects only
+// Hardcoded seed data disabled — projects are now managed entirely via Sanity CMS
 export async function generateStaticParams() {
-  // Get hardcoded project slugs
-  const hardcodedSlugs = getAllProjectSlugs();
-
-  // Get Sanity project slugs
   let sanityProjects = [];
   try {
     sanityProjects = await client.fetch(
@@ -55,37 +59,20 @@ export async function generateStaticParams() {
     console.error("Error fetching Sanity projects:", error);
   }
 
-  const sanitySlugObjects = sanityProjects.map((project) => ({
+  return sanityProjects.map((project) => ({
     slug: project.slug,
   }));
-
-  const hardcodedSlugObjects = hardcodedSlugs.map((slug) => ({
-    slug: slug,
-  }));
-
-  // Combine both
-  return [...hardcodedSlugObjects, ...sanitySlugObjects];
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
 
-  // Try hardcoded first
-  const hardcodedProject = getProjectBySlug(resolvedParams.slug);
-  if (hardcodedProject) {
+  const project = await getProjectFromSanity(resolvedParams.slug);
+  if (project) {
     return {
-      title: `${hardcodedProject.title} - SAY Creative`,
-      description: hardcodedProject.description,
-    };
-  }
-
-  // Try Sanity
-  const sanityProject = await getProjectFromSanity(resolvedParams.slug);
-  if (sanityProject) {
-    return {
-      title: `${sanityProject.title} - SAY Creative`,
-      description: sanityProject.description,
+      title: `${project.title} - SAY Creative`,
+      description: project.description,
     };
   }
 
@@ -97,37 +84,55 @@ export async function generateMetadata({ params }) {
 export default async function ProjectPage({ params }) {
   const resolvedParams = await params;
 
-  // Try to get hardcoded project first
-  let project = getProjectBySlug(resolvedParams.slug);
-  let isSanityProject = false;
+  // Hardcoded seed data disabled — projects are now managed entirely via Sanity CMS
+  const project = await getProjectFromSanity(resolvedParams.slug);
+  const isSanityProject = true;
 
-  // If not found in hardcoded, try Sanity
-  if (!project) {
-    project = await getProjectFromSanity(resolvedParams.slug);
-    isSanityProject = true;
-  }
-
-  // If still not found, show 404
   if (!project) {
     notFound();
   }
 
   // SOCIAL MEDIA TEMPLATE RENDERING
   if (isSanityProject && project.templateType === "social media") {
-    const sizeMap = {
-      "1/1": "aspect-square",
-      "9/16": "aspect-[9/16]",
-      "16/9": "aspect-video",
+    // No forced aspect ratios — items keep their original size
+
+    const igLink = project.instagramLink;
+    const allItems = (project.socialMediaFiles || []).filter((item) => item.url);
+
+    const leftItems = allItems.filter((_, i) => i % 2 === 0);
+    const rightItems = allItems.filter((_, i) => i % 2 === 1);
+
+    const renderItem = (item, index) => {
+      if (!item.url) return null;
+      const isVideo = item.mimeType && item.mimeType.startsWith("video/");
+
+      const media = isVideo ? (
+        <div className="rounded-lg overflow-hidden">
+          <video autoPlay muted loop playsInline className="w-full h-auto">
+            <source src={item.url} />
+          </video>
+        </div>
+      ) : (
+        <div className="rounded-lg overflow-hidden">
+          <img src={item.url} alt={`${project.title} - ${index + 1}`} className="w-full h-auto" />
+        </div>
+      );
+
+      if (igLink) {
+        return (
+          <a key={index} href={igLink} target="_blank" rel="noopener noreferrer" className="block mb-4">
+            {media}
+          </a>
+        );
+      }
+      return <div key={index} className="mb-4">{media}</div>;
     };
 
     return (
       <div className="min-h-screen bg-white">
         {/* Back Button + Title */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
-          <Link
-            href="/projects"
-            className="inline-flex items-center text-gray-600 hover:text-black transition"
-          >
+          <Link href="/projects" className="inline-flex items-center text-gray-600 hover:text-black transition">
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
@@ -136,99 +141,21 @@ export default async function ProjectPage({ params }) {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            {project.title}
-          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">{project.title}</h1>
         </div>
 
-        {/* Two-Column Grid */}
-        {project.socialMediaItems && project.socialMediaItems.length > 0 && (() => {
-          const leftItems = project.socialMediaItems.filter((item) => item.column !== "right");
-          const rightItems = project.socialMediaItems.filter((item) => item.column === "right");
-
-          const renderItem = (item, index) => {
-            const aspectClass = sizeMap[item.size] || "aspect-square";
-            const videoSrc = item.videoUrl || item.videoFileUrl;
-            const hasImage = !!item.image;
-            const hasVideo = !!videoSrc;
-
-            const mediaContent = hasVideo ? (
-              <div className={`relative ${aspectClass} rounded-lg overflow-hidden`}>
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src={videoSrc} />
-                </video>
-                {item.postLink && (
-                  <div className="absolute bottom-3 right-3 bg-black/50 rounded-full p-1.5">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z M5 5h5V3H3v18h18v-7h-2v5H5V5z" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-            ) : hasImage ? (
-              <div className={`relative ${aspectClass} rounded-lg overflow-hidden`}>
-                <Image
-                  src={urlFor(item.image).width(600).quality(80).auto("format").url()}
-                  alt={`${project.title} - ${index + 1}`}
-                  fill
-                  sizes="50vw"
-                  className="object-cover"
-                />
-                {item.postLink && (
-                  <div className="absolute bottom-3 right-3 bg-black/50 rounded-full p-1.5">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z M5 5h5V3H3v18h18v-7h-2v5H5V5z" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-            ) : null;
-
-            if (!mediaContent) return null;
-
-            if (item.postLink) {
-              return (
-                <a
-                  key={index}
-                  href={item.postLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mb-4 group cursor-pointer"
-                >
-                  {mediaContent}
-                </a>
-              );
-            }
-
-            return (
-              <div key={index} className="mb-4">
-                {mediaContent}
-              </div>
-            );
-          };
-
-          return (
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-              <div className="grid grid-cols-2 gap-4 items-start">
-                <div>{leftItems.map(renderItem)}</div>
-                <div>{rightItems.map(renderItem)}</div>
-              </div>
+        {allItems.length > 0 && (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+            <div className="grid grid-cols-2 gap-4 items-start">
+              <div>{leftItems.map((item, i) => renderItem(item, i))}</div>
+              <div>{rightItems.map((item, i) => renderItem(item, i))}</div>
             </div>
-          );
-        })()}
+          </div>
+        )}
 
         {/* Back to Projects */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t">
-          <Link
-            href="/projects"
-            className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium"
-          >
+          <Link href="/projects" className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium">
             View All Projects
           </Link>
         </div>
@@ -443,8 +370,8 @@ export default async function ProjectPage({ params }) {
                   };
                   return (
                     <div key={index} className="grid grid-cols-2 gap-8">
-                      {renderSlot(block.imageLeft, block.videoLeftUrl, `${project.title} - ${index + 1}`)}
-                      {renderSlot(block.imageRight, block.videoRightUrl, `${project.title} - ${index + 2}`)}
+                      {renderSlot(block.imageLeft, block.videoLeftUrl || block.videoLeftFileUrl, `${project.title} - ${index + 1}`)}
+                      {renderSlot(block.imageRight, block.videoRightUrl || block.videoRightFileUrl, `${project.title} - ${index + 2}`)}
                     </div>
                   );
                 }
@@ -473,10 +400,10 @@ export default async function ProjectPage({ params }) {
                   };
                   return (
                     <div key={index} className="grid grid-cols-2 gap-8">
-                      {renderGridSlot(block.image1, block.video1Url, `${project.title} - ${index + 1}`)}
-                      {renderGridSlot(block.image2, block.video2Url, `${project.title} - ${index + 2}`)}
-                      {renderGridSlot(block.image3, block.video3Url, `${project.title} - ${index + 3}`)}
-                      {renderGridSlot(block.image4, block.video4Url, `${project.title} - ${index + 4}`)}
+                      {renderGridSlot(block.image1, block.video1Url || block.video1FileUrl, `${project.title} - ${index + 1}`)}
+                      {renderGridSlot(block.image2, block.video2Url || block.video2FileUrl, `${project.title} - ${index + 2}`)}
+                      {renderGridSlot(block.image3, block.video3Url || block.video3FileUrl, `${project.title} - ${index + 3}`)}
+                      {renderGridSlot(block.image4, block.video4Url || block.video4FileUrl, `${project.title} - ${index + 4}`)}
                     </div>
                   );
                 }
