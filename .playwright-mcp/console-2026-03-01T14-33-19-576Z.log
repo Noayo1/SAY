@@ -1,0 +1,725 @@
+[      31ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[     849ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+    at processResult (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:407096)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:408891)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5353)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:408319)
+    at eval (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224)
+    at Array.<anonymous> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/build/webpack/plugins/profiling-plugin.js:177:29)
+    at runCallbacks (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:166322)
+    at ReadFileContext.<anonymous> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:168449)
+    at ReadFileContext.callback (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:267828)
+    at FSReqCallback.readFileAfterOpen [as oncomplete] (node:fs:292:13)
+    at FSReqCallback.callbackTrampoline (node:internal/async_hooks:130:17)
+[     851ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js' @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    1110ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[    1602ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+    at processResult (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:407096)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:408891)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5353)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:408319)
+    at eval (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224)
+    at Array.<anonymous> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/build/webpack/plugins/profiling-plugin.js:177:29)
+    at runCallbacks (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:166322)
+    at ReadFileContext.<anonymous> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:168449)
+    at ReadFileContext.callback (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:267828)
+    at FSReqCallback.readFileAfterOpen [as oncomplete] (node:fs:292:13)
+    at FSReqCallback.callbackTrampoline (node:internal/async_hooks:130:17)
+[    1601ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js' @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    1757ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[    2205ms] ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+    at processResult (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:407096)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:408891)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8645)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5353)
+    at <unknown> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:29:408319)
+    at eval (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224)
+    at Array.<anonymous> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/build/webpack/plugins/profiling-plugin.js:177:29)
+    at runCallbacks (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:166322)
+    at ReadFileContext.<anonymous> (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:168449)
+    at ReadFileContext.callback (file:///home/noa-yonatanov/SAY/SAY/node_modules/next/dist/compiled/webpack/bundle5.js:1:267828)
+    at FSReqCallback.readFileAfterOpen [as oncomplete] (node:fs:292:13)
+    at FSReqCallback.callbackTrampoline (node:internal/async_hooks:130:17)
+[    2206ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js' @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    2220ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js' @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    2380ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    2466ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    2679ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    2714ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    2841ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    2944ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    3147ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    3254ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    3401ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    3557ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    3557ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    3693ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    3693ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    3842ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    3842ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    4130ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    4731ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    4976ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    4976ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    5091ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    5091ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    5315ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    5366ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    5367ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    5543ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    5543ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    5699ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    5699ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    5910ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    6014ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    6014ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6132ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    6132ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6242ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    6243ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6377ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    6377ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6533ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    6533ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    6770ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    7214ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    7472ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    7472ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    7575ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    7576ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    7816ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    7856ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    7856ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    7992ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    7993ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    8106ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    8106ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    8296ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    8404ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    8404ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    8538ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    8538ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    8674ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    8675ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    8825ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    8825ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    8954ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    8955ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[    9196ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    9691ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[    9969ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[    9970ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   10217ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   10217ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   10445ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   10468ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   10469ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   10593ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   10595ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   10700ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   10700ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   10867ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   10952ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   10952ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   11049ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   11050ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   11155ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   11156ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   11281ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   11281ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   11411ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   11411ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   11619ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   12024ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   12231ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   12232ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   12317ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   12317ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   12534ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   12563ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   12564ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   12680ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   12680ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   12779ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   12779ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   12955ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   13053ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   13053ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   13137ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   13137ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   13276ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   13276ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   13390ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   13390ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   13574ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   13577ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   13775ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   14186ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   14385ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   14385ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   14441ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   14441ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   14611ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   14650ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   14650ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   14744ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   14744ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   14858ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   14858ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   15041ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   15137ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   15138ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   15238ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   15238ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   15345ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   15345ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   15467ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   15468ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   15573ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   15573ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   15763ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   16189ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   16400ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   16400ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   16483ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   16483ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   16683ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   16708ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   16710ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   16818ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   16819ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   16941ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   16941ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   17171ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   17248ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   17249ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   17394ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   17394ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   17573ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   17573ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   17702ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   17702ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   17840ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   17840ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   18005ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   18431ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   18668ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   18669ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   18746ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   18746ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   18938ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   18975ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   18975ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   19071ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   19071ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   19188ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   19188ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   19384ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   19546ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   19546ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   19879ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   19879ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   19980ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   19980ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   20103ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   20103ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   20211ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   20212ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   20407ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   20833ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   21039ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21039ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   21128ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21128ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   21328ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   21345ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21345ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   21456ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21456ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   21596ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21597ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   21807ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   21892ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21893ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   21986ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   21987ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   22131ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   22132ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   22240ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   22240ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   22336ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   22336ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   22506ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   22883ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   23095ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   23095ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   23193ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   23193ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   23416ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   23444ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   23444ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   23543ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   23543ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   23651ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   23652ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   23852ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   23934ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   23934ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   24038ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   24039ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   24148ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   24148ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   24251ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   24251ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   24359ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   24359ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   24544ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   24915ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   25115ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25116ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25177ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25178ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25370ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   25410ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25410ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25542ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25543ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25623ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25623ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25771ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   25832ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25832ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25903ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25903ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   25986ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   25986ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   26066ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   26066ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   26162ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   26162ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   26303ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   26565ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   26688ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   26688ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   26746ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   26746ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   26883ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   26907ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   26908ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   26974ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   26975ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27062ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   27062ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27177ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   27219ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   27219ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27287ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   27287ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27349ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   27350ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27426ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   27427ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27530ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   27530ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   27732ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   28040ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   28206ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   28206ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   28278ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   28278ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   28465ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   28482ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   28482ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   28589ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   28589ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   28683ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   28684ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   28845ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   28923ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   28923ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   29029ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   29029ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   29137ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   29138ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   29259ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   29259ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   29370ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   29370ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   29545ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   30011ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   30253ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   30257ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   30353ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   30353ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   30577ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   30615ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   30615ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   30780ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   30780ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   30925ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   30925ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   31123ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   31360ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   31361ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   31414ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   31415ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   31541ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   31542ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   31707ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   31707ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   31839ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   31839ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   32170ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   32808ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   33147ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   33148ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   33243ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   33244ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   33492ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   33526ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   33527ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   33679ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   33680ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   33838ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   33838ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   34083ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   34171ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   34171ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   34317ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   34320ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   34491ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   34491ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   34664ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   34664ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   34864ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   34864ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   35075ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   35456ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   35663ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   35663ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   35745ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   35747ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   35945ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   35974ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   35974ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36089ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36089ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36188ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36189ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36345ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   36409ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36409ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36505ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36505ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36612ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36612ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36729ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36730ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36846ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   36846ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   36981ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   37531ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   37680ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   37680ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   37739ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   37740ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   37935ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   37954ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   37954ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38088ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38088ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38158ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38159ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38264ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   38316ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38316ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38371ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38371ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38445ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38445ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38511ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38511ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38584ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/3bb6776ef8cb0036.webpack.hot-update.json:0
+[   38584ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/shared/forward-logs-shared.js:27
+[   38727ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js'
+
+Import trace for requested module:
+./node_modules/next/dist/server/app-render/action-utils.js @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   38932ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed:  @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:86
+[   39940ms] [ERROR] ./node_modules/next/dist/server/app-render/action-utils.js
+Error: ENOENT: no such file or directory, open '/home/noa-yonatanov/SAY/SAY/node_modules/next/dist/server/app-render/action-utils.js' @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:70
+[   40319ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0

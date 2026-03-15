@@ -113,14 +113,22 @@ export default {
               options: { accept: "image/*" },
               validation: (Rule) => Rule.required(),
             },
+            {
+              name: "postLink",
+              title: "Link (Instagram, etc.)",
+              type: "url",
+              description: "Optional. Clicking this image will open this link in a new tab.",
+            },
           ],
           preview: {
             select: {
               media: "image",
+              postLink: "postLink",
             },
-            prepare({ media }) {
+            prepare({ media, postLink }) {
               return {
                 title: "Full Width Image",
+                subtitle: postLink ? `Links to: ${postLink}` : "",
                 media: media,
               };
             },
@@ -156,11 +164,19 @@ export default {
               initialValue: true,
               description: "If enabled, video autoplays muted and loops. If disabled, shows play controls.",
             },
+            {
+              name: "postLink",
+              title: "Link (Instagram, etc.)",
+              type: "url",
+              description: "Optional. Clicking this video will open this link in a new tab.",
+            },
           ],
           preview: {
-            prepare() {
+            select: { postLink: "postLink" },
+            prepare({ postLink }) {
               return {
                 title: "Full Width Video",
+                subtitle: postLink ? `Links to: ${postLink}` : "",
               };
             },
           },
@@ -209,6 +225,12 @@ export default {
               hidden: ({ parent }) => parent?.leftMediaType !== "video",
             },
             {
+              name: "postLinkLeft",
+              title: "Left Slot — Link (Instagram, etc.)",
+              type: "url",
+              description: "Optional. Clicking the left image/video will open this link.",
+            },
+            {
               name: "rightMediaType",
               title: "Right Slot — Media Type",
               type: "string",
@@ -242,6 +264,12 @@ export default {
               type: "url",
               description: "Paste a video link instead (Cloudinary, YouTube, Vimeo, etc.)",
               hidden: ({ parent }) => parent?.rightMediaType !== "video",
+            },
+            {
+              name: "postLinkRight",
+              title: "Right Slot — Link (Instagram, etc.)",
+              type: "url",
+              description: "Optional. Clicking the right image/video will open this link.",
             },
             {
               name: "aspectRatio",
@@ -296,6 +324,7 @@ export default {
             },
             { name: "video1File", title: "Video 1 — Upload File (Top Left)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media1Type !== "video" },
             { name: "video1Url", title: "Video 1 — Or Paste URL (Top Left)", type: "url", hidden: ({ parent }) => parent?.media1Type !== "video" },
+            { name: "postLink1", title: "Link — Slot 1 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
             {
               name: "media2Type",
               title: "Slot 2 (Top Right) — Media Type",
@@ -312,6 +341,7 @@ export default {
             },
             { name: "video2File", title: "Video 2 — Upload File (Top Right)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media2Type !== "video" },
             { name: "video2Url", title: "Video 2 — Or Paste URL (Top Right)", type: "url", hidden: ({ parent }) => parent?.media2Type !== "video" },
+            { name: "postLink2", title: "Link — Slot 2 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
             {
               name: "media3Type",
               title: "Slot 3 (Bottom Left) — Media Type",
@@ -328,6 +358,7 @@ export default {
             },
             { name: "video3File", title: "Video 3 — Upload File (Bottom Left)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media3Type !== "video" },
             { name: "video3Url", title: "Video 3 — Or Paste URL (Bottom Left)", type: "url", hidden: ({ parent }) => parent?.media3Type !== "video" },
+            { name: "postLink3", title: "Link — Slot 3 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
             {
               name: "media4Type",
               title: "Slot 4 (Bottom Right) — Media Type",
@@ -344,6 +375,7 @@ export default {
             },
             { name: "video4File", title: "Video 4 — Upload File (Bottom Right)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media4Type !== "video" },
             { name: "video4Url", title: "Video 4 — Or Paste URL (Bottom Right)", type: "url", hidden: ({ parent }) => parent?.media4Type !== "video" },
+            { name: "postLink4", title: "Link — Slot 4 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
             {
               name: "aspectRatio",
               title: "Aspect Ratio",
@@ -387,6 +419,12 @@ export default {
               type: "image",
               options: { accept: "image/*" },
               validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "postLink",
+              title: "Link (Instagram, etc.)",
+              type: "url",
+              description: "Optional. Clicking the image will open this link in a new tab.",
             },
             {
               name: "text",
