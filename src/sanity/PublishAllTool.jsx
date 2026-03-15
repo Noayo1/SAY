@@ -3,7 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 import { useClient } from "sanity";
 
 export default function PublishAllTool() {
-  const client = useClient({ apiVersion: "2025-11-18" });
+  const studioClient = useClient({ apiVersion: "2025-11-18" });
+  const client = studioClient.withConfig({ perspective: "raw" });
   const [drafts, setDrafts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [publishing, setPublishing] = useState(false);
@@ -13,9 +14,7 @@ export default function PublishAllTool() {
     setLoading(true);
     try {
       const results = await client.fetch(
-        `*[_id in path "drafts.**"] { _id, _type, title }`,
-        {},
-        { perspective: "raw" }
+        `*[_id in path "drafts.**"] { _id, _type, title }`
       );
       setDrafts(results);
     } catch (err) {
@@ -37,7 +36,7 @@ export default function PublishAllTool() {
     for (const draft of drafts) {
       const publishedId = draft._id.replace("drafts.", "");
       try {
-        const doc = await client.fetch(`*[_id == $id][0]`, { id: draft._id }, { perspective: "raw" });
+        const doc = await client.fetch(`*[_id == $id][0]`, { id: draft._id });
         const { _id, ...fields } = doc;
         await client.createOrReplace({ ...fields, _id: publishedId });
         await client.delete(draft._id);
