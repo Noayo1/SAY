@@ -16,12 +16,14 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
   const filtered =
     activeCategory === "All"
       ? projects
-      : projects.filter(
-          (p) =>
-            p.category &&
-            p.category.toLowerCase().replace(/[\s-]+/g, " ") ===
+      : projects.filter((p) => {
+          const cats = p.categories || (p.category ? [p.category] : []);
+          return cats.some(
+            (c) =>
+              c.toLowerCase().replace(/[\s-]+/g, " ") ===
               activeCategory.toLowerCase().replace(/[\s-]+/g, " ")
-        );
+          );
+        });
 
   return (
     <div className={`${noPadTop ? "pt-12" : "pt-28"} pb-20`}>
@@ -93,9 +95,9 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
                     <h3 className="text-white text-sm sm:text-base font-medium tracking-widest uppercase text-center">
                       {project.title}
                     </h3>
-                    {project.category && (
+                    {(project.categories || project.category) && (
                       <p className="text-white/70 text-xs sm:text-sm italic mt-2 text-center">
-                        {project.category}
+                        {(project.categories || [project.category]).join(" / ")}
                       </p>
                     )}
                   </div>

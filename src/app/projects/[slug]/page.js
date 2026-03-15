@@ -16,7 +16,7 @@ async function getProjectFromSanity(slug) {
         slug,
         client,
         year,
-        category,
+        categories,
         templateType,
         heroVideoUrl,
         "heroMediaUrl": heroMedia.asset->url,
@@ -235,10 +235,10 @@ export default async function ProjectPage({ params }) {
         {/* Project Title Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-12">
-            {/* Category */}
-            {project.category && (
+            {/* Categories */}
+            {project.categories && project.categories.length > 0 && (
               <p className="text-sm uppercase tracking-wider text-gray-500 mb-4">
-                {project.category}
+                {project.categories.join(" / ")}
               </p>
             )}
 

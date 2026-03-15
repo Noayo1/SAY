@@ -8,7 +8,7 @@ async function getSanityProjects() {
         _id,
         title,
         slug,
-        category,
+        categories,
         thumbnail
       }`
     );

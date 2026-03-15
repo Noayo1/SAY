@@ -33,9 +33,10 @@ export default {
       type: "string",
     },
     {
-      name: "category",
-      title: "Category",
-      type: "string",
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
         list: [
           { title: "Branding", value: "Branding" },
