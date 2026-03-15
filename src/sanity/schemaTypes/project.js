@@ -40,6 +40,7 @@ export default {
           { title: "Branding", value: "Branding" },
           { title: "Social Media", value: "Social Media" },
           { title: "AI Production", value: "AI Production" },
+          { title: "Posters", value: "Posters" },
         ],
       },
     },

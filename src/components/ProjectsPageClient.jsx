@@ -8,6 +8,7 @@ const categories = [
   "Branding",
   "Social Media",
   "AI Production",
+  "Posters",
 ];
 
 export default function ProjectsPageClient({ projects, noPadTop = false }) {
