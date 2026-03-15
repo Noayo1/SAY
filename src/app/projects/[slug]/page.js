@@ -313,19 +313,31 @@ export default async function ProjectPage({ params }) {
           {project.contentBlocks && project.contentBlocks.length > 0 && (
             <div className="space-y-8">
               {project.contentBlocks.map((block, index) => {
+                const wrapLink = (content, link) => {
+                  if (!link) return content;
+                  return (
+                    <a href={link} target="_blank" rel="noopener noreferrer" className="block">
+                      {content}
+                    </a>
+                  );
+                };
+
                 // Block Type 1: Full Width Image
                 if (block._type === "fullWidthImage") {
                   return (
                     <div key={index} className="w-full">
-                      <div className="relative aspect-video rounded-lg overflow-hidden">
-                        <Image
-                          src={urlFor(block.image).width(1400).quality(80).auto("format").url()}
-                          alt={`${project.title} - Image ${index + 1}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 1280px"
-                          className="object-cover"
-                        />
-                      </div>
+                      {wrapLink(
+                        <div className="relative aspect-video rounded-lg overflow-hidden">
+                          <Image
+                            src={urlFor(block.image).width(1400).quality(80).auto("format").url()}
+                            alt={`${project.title} - Image ${index + 1}`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 1280px"
+                            className="object-cover"
+                          />
+                        </div>,
+                        block.postLink
+                      )}
                     </div>
                   );
                 }
@@ -336,7 +348,10 @@ export default async function ProjectPage({ params }) {
                   if (!src) return null;
                   return (
                     <div key={index} className="w-full">
-                      <VideoPlayer src={src} controls={block.autoplay === false} />
+                      {wrapLink(
+                        <VideoPlayer src={src} controls={block.autoplay === false} />,
+                        block.postLink
+                      )}
                     </div>
                   );
                 }
@@ -344,9 +359,10 @@ export default async function ProjectPage({ params }) {
                 // Block Type 2: Two Media Side by Side
                 if (block._type === "twoImages") {
                   const aspect = aspectClass(block.aspectRatio);
-                  const renderSlot = (image, videoUrl, alt) => {
+                  const renderSlot = (image, videoUrl, alt, postLink) => {
+                    let content = null;
                     if (image) {
-                      return (
+                      content = (
                         <div className={`relative ${aspect} rounded-lg overflow-hidden`}>
                           <Image
                             src={urlFor(image).width(700).quality(80).auto("format").url()}
@@ -357,16 +373,16 @@ export default async function ProjectPage({ params }) {
                           />
                         </div>
                       );
+                    } else if (videoUrl) {
+                      content = <VideoPlayer src={videoUrl} aspect={aspect} />;
                     }
-                    if (videoUrl) {
-                      return <VideoPlayer src={videoUrl} aspect={aspect} />;
-                    }
-                    return null;
+                    if (!content) return null;
+                    return wrapLink(content, postLink);
                   };
                   return (
                     <div key={index} className="grid grid-cols-2 gap-8">
-                      {renderSlot(block.imageLeft, block.videoLeftUrl || block.videoLeftFileUrl, `${project.title} - ${index + 1}`)}
-                      {renderSlot(block.imageRight, block.videoRightUrl || block.videoRightFileUrl, `${project.title} - ${index + 2}`)}
+                      {renderSlot(block.imageLeft, block.videoLeftUrl || block.videoLeftFileUrl, `${project.title} - ${index + 1}`, block.postLinkLeft)}
+                      {renderSlot(block.imageRight, block.videoRightUrl || block.videoRightFileUrl, `${project.title} - ${index + 2}`, block.postLinkRight)}
                     </div>
                   );
                 }
@@ -374,9 +390,10 @@ export default async function ProjectPage({ params }) {
                 // Block Type 3: Four Images Grid
                 if (block._type === "fourImagesGrid") {
                   const aspect = aspectClass(block.aspectRatio);
-                  const renderGridSlot = (image, videoUrl, alt) => {
+                  const renderGridSlot = (image, videoUrl, alt, postLink) => {
+                    let content = null;
                     if (image) {
-                      return (
+                      content = (
                         <div className={`relative ${aspect} rounded-lg overflow-hidden`}>
                           <Image
                             src={urlFor(image).width(700).quality(80).auto("format").url()}
@@ -387,65 +404,66 @@ export default async function ProjectPage({ params }) {
                           />
                         </div>
                       );
+                    } else if (videoUrl) {
+                      content = <VideoPlayer src={videoUrl} aspect={aspect} />;
                     }
-                    if (videoUrl) {
-                      return <VideoPlayer src={videoUrl} aspect={aspect} />;
-                    }
-                    return null;
+                    if (!content) return null;
+                    return wrapLink(content, postLink);
                   };
                   return (
                     <div key={index} className="grid grid-cols-2 gap-8">
-                      {renderGridSlot(block.image1, block.video1Url || block.video1FileUrl, `${project.title} - ${index + 1}`)}
-                      {renderGridSlot(block.image2, block.video2Url || block.video2FileUrl, `${project.title} - ${index + 2}`)}
-                      {renderGridSlot(block.image3, block.video3Url || block.video3FileUrl, `${project.title} - ${index + 3}`)}
-                      {renderGridSlot(block.image4, block.video4Url || block.video4FileUrl, `${project.title} - ${index + 4}`)}
+                      {renderGridSlot(block.image1, block.video1Url || block.video1FileUrl, `${project.title} - ${index + 1}`, block.postLink1)}
+                      {renderGridSlot(block.image2, block.video2Url || block.video2FileUrl, `${project.title} - ${index + 2}`, block.postLink2)}
+                      {renderGridSlot(block.image3, block.video3Url || block.video3FileUrl, `${project.title} - ${index + 3}`, block.postLink3)}
+                      {renderGridSlot(block.image4, block.video4Url || block.video4FileUrl, `${project.title} - ${index + 4}`, block.postLink4)}
                     </div>
                   );
                 }
 
                 // Block Type 4: Image + Text
                 if (block._type === "imageText") {
+                  const imageEl = (
+                    <div className="relative aspect-square rounded-lg overflow-hidden order-2 md:order-none">
+                      <Image
+                        src={urlFor(block.image).width(700).quality(80).auto("format").url()}
+                        alt={`${project.title}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  );
+                  const textEl = (
+                    <div className={`md:aspect-square flex items-center justify-center p-6 md:p-8 ${block.imagePosition === "left" ? "order-1 md:order-none" : ""}`}>
+                      <p
+                        lang="he"
+                        dir="rtl"
+                        className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line text-right"
+                      >
+                        {block.text}
+                      </p>
+                    </div>
+                  );
                   return (
                     <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {block.imagePosition === "left" ? (
                         <>
-                          <div className="relative aspect-square rounded-lg overflow-hidden order-2 md:order-none">
-                            <Image
-                              src={urlFor(block.image).width(700).quality(80).auto("format").url()}
-                              alt={`${project.title}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                          <div className="md:aspect-square flex items-center justify-center p-6 md:p-8 order-1 md:order-none">
-                            <p
-                              lang="he"
-                              dir="rtl"
-                              className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line text-right"
-                            >
-                              {block.text}
-                            </p>
-                          </div>
+                          {wrapLink(imageEl, block.postLink)}
+                          {textEl}
                         </>
                       ) : (
                         <>
-                          <div className="md:aspect-square flex items-center justify-center p-6 md:p-8">
-                            <p
-                              lang="he"
-                              dir="rtl"
-                              className="text-base md:text-lg text-gray-700 leading-relaxed whitespace-pre-line text-right"
-                            >
-                              {block.text}
-                            </p>
-                          </div>
-                          <div className="relative aspect-square rounded-lg overflow-hidden">
-                            <Image
-                              src={urlFor(block.image).width(700).quality(80).auto("format").url()}
-                              alt={`${project.title}`}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
+                          {textEl}
+                          {wrapLink(
+                            <div className="relative aspect-square rounded-lg overflow-hidden">
+                              <Image
+                                src={urlFor(block.image).width(700).quality(80).auto("format").url()}
+                                alt={`${project.title}`}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>,
+                            block.postLink
+                          )}
                         </>
                       )}
                     </div>

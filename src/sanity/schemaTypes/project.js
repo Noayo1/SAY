@@ -114,10 +114,16 @@ export default {
               validation: (Rule) => Rule.required(),
             },
             {
+              name: "hasLink",
+              title: "Add link to Instagram",
+              type: "boolean",
+              initialValue: false,
+            },
+            {
               name: "postLink",
-              title: "Link (Instagram, etc.)",
+              title: "Instagram URL",
               type: "url",
-              description: "Optional. Clicking this image will open this link in a new tab.",
+              hidden: ({ parent }) => !parent?.hasLink,
             },
           ],
           preview: {
@@ -165,10 +171,16 @@ export default {
               description: "If enabled, video autoplays muted and loops. If disabled, shows play controls.",
             },
             {
+              name: "hasLink",
+              title: "Add link to Instagram",
+              type: "boolean",
+              initialValue: false,
+            },
+            {
               name: "postLink",
-              title: "Link (Instagram, etc.)",
+              title: "Instagram URL",
               type: "url",
-              description: "Optional. Clicking this video will open this link in a new tab.",
+              hidden: ({ parent }) => !parent?.hasLink,
             },
           ],
           preview: {
@@ -225,10 +237,16 @@ export default {
               hidden: ({ parent }) => parent?.leftMediaType !== "video",
             },
             {
+              name: "hasLinkLeft",
+              title: "Left Slot — Add link to Instagram",
+              type: "boolean",
+              initialValue: false,
+            },
+            {
               name: "postLinkLeft",
-              title: "Left Slot — Link (Instagram, etc.)",
+              title: "Left Slot — Instagram URL",
               type: "url",
-              description: "Optional. Clicking the left image/video will open this link.",
+              hidden: ({ parent }) => !parent?.hasLinkLeft,
             },
             {
               name: "rightMediaType",
@@ -266,10 +284,16 @@ export default {
               hidden: ({ parent }) => parent?.rightMediaType !== "video",
             },
             {
+              name: "hasLinkRight",
+              title: "Right Slot — Add link to Instagram",
+              type: "boolean",
+              initialValue: false,
+            },
+            {
               name: "postLinkRight",
-              title: "Right Slot — Link (Instagram, etc.)",
+              title: "Right Slot — Instagram URL",
               type: "url",
-              description: "Optional. Clicking the right image/video will open this link.",
+              hidden: ({ parent }) => !parent?.hasLinkRight,
             },
             {
               name: "aspectRatio",
@@ -324,7 +348,8 @@ export default {
             },
             { name: "video1File", title: "Video 1 — Upload File (Top Left)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media1Type !== "video" },
             { name: "video1Url", title: "Video 1 — Or Paste URL (Top Left)", type: "url", hidden: ({ parent }) => parent?.media1Type !== "video" },
-            { name: "postLink1", title: "Link — Slot 1 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
+            { name: "hasLink1", title: "Slot 1 — Add link to Instagram", type: "boolean", initialValue: false },
+            { name: "postLink1", title: "Slot 1 — Instagram URL", type: "url", hidden: ({ parent }) => !parent?.hasLink1 },
             {
               name: "media2Type",
               title: "Slot 2 (Top Right) — Media Type",
@@ -341,7 +366,8 @@ export default {
             },
             { name: "video2File", title: "Video 2 — Upload File (Top Right)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media2Type !== "video" },
             { name: "video2Url", title: "Video 2 — Or Paste URL (Top Right)", type: "url", hidden: ({ parent }) => parent?.media2Type !== "video" },
-            { name: "postLink2", title: "Link — Slot 2 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
+            { name: "hasLink2", title: "Slot 2 — Add link to Instagram", type: "boolean", initialValue: false },
+            { name: "postLink2", title: "Slot 2 — Instagram URL", type: "url", hidden: ({ parent }) => !parent?.hasLink2 },
             {
               name: "media3Type",
               title: "Slot 3 (Bottom Left) — Media Type",
@@ -358,7 +384,8 @@ export default {
             },
             { name: "video3File", title: "Video 3 — Upload File (Bottom Left)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media3Type !== "video" },
             { name: "video3Url", title: "Video 3 — Or Paste URL (Bottom Left)", type: "url", hidden: ({ parent }) => parent?.media3Type !== "video" },
-            { name: "postLink3", title: "Link — Slot 3 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
+            { name: "hasLink3", title: "Slot 3 — Add link to Instagram", type: "boolean", initialValue: false },
+            { name: "postLink3", title: "Slot 3 — Instagram URL", type: "url", hidden: ({ parent }) => !parent?.hasLink3 },
             {
               name: "media4Type",
               title: "Slot 4 (Bottom Right) — Media Type",
@@ -375,7 +402,8 @@ export default {
             },
             { name: "video4File", title: "Video 4 — Upload File (Bottom Right)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media4Type !== "video" },
             { name: "video4Url", title: "Video 4 — Or Paste URL (Bottom Right)", type: "url", hidden: ({ parent }) => parent?.media4Type !== "video" },
-            { name: "postLink4", title: "Link — Slot 4 (Instagram, etc.)", type: "url", description: "Optional. Clicking this item opens this link." },
+            { name: "hasLink4", title: "Slot 4 — Add link to Instagram", type: "boolean", initialValue: false },
+            { name: "postLink4", title: "Slot 4 — Instagram URL", type: "url", hidden: ({ parent }) => !parent?.hasLink4 },
             {
               name: "aspectRatio",
               title: "Aspect Ratio",
@@ -421,10 +449,16 @@ export default {
               validation: (Rule) => Rule.required(),
             },
             {
+              name: "hasLink",
+              title: "Add link to Instagram",
+              type: "boolean",
+              initialValue: false,
+            },
+            {
               name: "postLink",
-              title: "Link (Instagram, etc.)",
+              title: "Instagram URL",
               type: "url",
-              description: "Optional. Clicking the image will open this link in a new tab.",
+              hidden: ({ parent }) => !parent?.hasLink,
             },
             {
               name: "text",
