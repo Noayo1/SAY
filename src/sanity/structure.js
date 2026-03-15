@@ -1,3 +1,5 @@
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
+
 function ProjectPreview(props) {
   const slug = props.document?.displayed?.slug?.current;
   if (!slug) {
@@ -16,28 +18,26 @@ function ProjectPreview(props) {
   );
 }
 
-export const structure = (S) =>
+export const structure = (S, context) =>
   S.list()
     .title("Content")
     .items([
-      S.listItem()
-        .title("Projects")
-        .schemaType("project")
-        .child(
-          S.documentTypeList("project")
-            .title("Projects")
-            .child((documentId) =>
-              S.document()
-                .documentId(documentId)
-                .schemaType("project")
-                .views([
-                  S.view.form(),
-                  S.view
-                    .component(ProjectPreview)
-                    .title("Preview"),
-                ])
-            )
-        ),
+      orderableDocumentListDeskItem({
+        type: "project",
+        title: "Projects",
+        S,
+        context,
+        createIntent: true,
+        child: (documentId) =>
+          S.document()
+            .documentId(documentId)
+            .schemaType("project")
+            .views([
+              S.view.form(),
+              S.view.component(ProjectPreview).title("Preview"),
+            ]),
+      }),
+      S.divider(),
       ...S.documentTypeListItems().filter(
         (listItem) => !["project"].includes(listItem.getId())
       ),

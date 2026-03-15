@@ -4,7 +4,7 @@ import { urlFor } from "@/sanity/lib/image";
 async function getSanityProjects() {
   try {
     const sanityProjects = await client.fetch(
-      `*[_type == "project"] | order(coalesce(order, 999) asc, _createdAt desc) {
+      `*[_type == "project"] | order(orderRank asc, _createdAt desc) {
         _id,
         title,
         slug,
