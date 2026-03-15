@@ -45,6 +45,12 @@ export default {
       },
     },
     {
+      name: "order",
+      title: "Display Order",
+      type: "number",
+      description: "Lower numbers appear first. Leave empty to sort by creation date.",
+    },
+    {
       name: "thumbnail",
       title: "Thumbnail Image (Project Grid)",
       type: "image",

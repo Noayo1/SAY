@@ -13,7 +13,9 @@ export default function PublishAllTool() {
     setLoading(true);
     try {
       const results = await client.fetch(
-        `*[_id in path "drafts.**"] { _id, _type, title }`
+        `*[_id in path "drafts.**"] { _id, _type, title }`,
+        {},
+        { perspective: "raw" }
       );
       setDrafts(results);
     } catch (err) {
@@ -35,7 +37,7 @@ export default function PublishAllTool() {
     for (const draft of drafts) {
       const publishedId = draft._id.replace("drafts.", "");
       try {
-        const doc = await client.fetch(`*[_id == $id][0]`, { id: draft._id });
+        const doc = await client.fetch(`*[_id == $id][0]`, { id: draft._id }, { perspective: "raw" });
         const { _id, ...fields } = doc;
         await client.createOrReplace({ ...fields, _id: publishedId });
         await client.delete(draft._id);
