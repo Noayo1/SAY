@@ -18,6 +18,16 @@ function ProjectPreview(props) {
   );
 }
 
+export const defaultDocumentNode = (S, { schemaType }) => {
+  if (schemaType === "project") {
+    return S.document().views([
+      S.view.form(),
+      S.view.component(ProjectPreview).title("Preview"),
+    ]);
+  }
+  return S.document();
+};
+
 export const structure = (S, context) =>
   S.list()
     .title("Content")
@@ -28,14 +38,6 @@ export const structure = (S, context) =>
         S,
         context,
         createIntent: true,
-        child: (documentId) =>
-          S.document()
-            .documentId(documentId)
-            .schemaType("project")
-            .views([
-              S.view.form(),
-              S.view.component(ProjectPreview).title("Preview"),
-            ]),
       }),
       S.divider(),
       ...S.documentTypeListItems().filter(
