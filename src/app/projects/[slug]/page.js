@@ -196,7 +196,17 @@ export default async function ProjectPage({ params }) {
           if (videoUrl || (isVideo && mediaUrl)) {
             return (
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-                <VideoPlayer src={videoUrl || mediaUrl} />
+                <div className="rounded-lg overflow-hidden">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-auto"
+                  >
+                    <source src={videoUrl || mediaUrl} />
+                  </video>
+                </div>
               </div>
             );
           }
