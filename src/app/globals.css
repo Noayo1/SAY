@@ -93,3 +93,41 @@ body {
   .say-home *, .say-home *::after { transition: none !important; }
   .say-hero { position: relative; }
 }
+
+/* Vector arrows render consistently on iOS, Android and desktop. */
+.say-project-open svg { width: 23px; height: 23px; }
+.say-contact-title > span svg { width: .8em; height: .8em; }
+.say-work-end a, .say-footer-bottom a { display: inline-flex; align-items: center; gap: 6px; }
+.say-work-end svg, .say-footer-bottom svg { width: 14px; height: 14px; }
+@media (max-width: 700px) {
+  .say-hero { position: relative; }
+  .say-work { padding: 26px 20px 0; scroll-margin-top: 72px; }
+  .say-work > .say-section-note { align-items: center; gap: 16px; font-size: 9px; line-height: 1.5; }
+  .say-work > .say-section-note > span:first-child { max-width: 190px; }
+  .say-work > .say-section-note > span:last-child { max-width: 125px; letter-spacing: .04em; }
+  .say-work-heading { padding: 34px 0 24px; }
+  .say-work-heading h1 { display: inline-block; font-size: clamp(58px, 16vw, 98px); line-height: .9; letter-spacing: -.065em; }
+  .say-work-heading h1 > span { margin-left: 0; }
+  .say-work-heading sup { font-size: 11px; top: 0; margin-left: 10px; }
+  .say-work-heading > p { margin: 22px 0 0; max-width: 100%; font-size: 13px; line-height: 1.6; text-wrap: pretty; }
+  .say-work-heading > p br { display: none; }
+  .say-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 18px 0 26px; }
+  .say-filters button { min-height: 42px; justify-content: space-between; padding: 9px 10px; gap: 4px; font-size: 10px; white-space: nowrap; }
+  .say-filters button span { font-size: 9px; }
+  .say-project-grid { gap: 30px; }
+  .say-project-caption { padding-top: 12px; }
+  .say-project-caption h2 { font-size: 19px; line-height: 1.25; }
+  .say-project-caption p { font-size: 11px; line-height: 1.5; }
+  .say-project-open { width: 44px; height: 44px; }
+  .say-project-open svg { width: 22px; height: 22px; }
+  .say-hero-bottom { gap: 16px; }
+  .say-hero-bottom p { font-size: clamp(20px, 5vw, 30px); }
+  .say-hero-bottom a { white-space: nowrap; }
+  .say-footer { padding-left: 20px; padding-right: 20px; }
+  .say-footer-bottom { display: grid; grid-template-columns: 1fr auto; gap: 18px 10px; }
+  .say-footer-bottom > span { grid-column: 1 / -1; }
+}
+@media (max-width: 350px) {
+  .say-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .say-hero-bottom { align-items: flex-start; flex-direction: column; }
+}

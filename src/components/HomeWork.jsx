@@ -1,5 +1,6 @@
 "use client";
 
+import ArrowIcon from "@/components/ArrowIcon";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +20,7 @@ export default function HomeWork({ projects }) {
       <div className="say-section-note"><span><i /> A selection of what we do</span><span>Independent creative studio · Ashdod</span></div>
       <div className="say-work-heading">
         <h1 id="work-heading">Selected<br /><span>work.</span><sup>({String(projects.length).padStart(2, "0")})</sup></h1>
-        <p>Branding, culture &amp; everything in between.<br />Ideas with a point of view.<br />Made to be seen. Made to be felt.</p>
+        <p>Branding, culture &amp; everything in between.<br /> Ideas with a point of view.<br /> Made to be seen. Made to be felt.</p>
       </div>
       <div className="say-filters" aria-label="Filter projects">
         {categories.map((item) => (
@@ -37,14 +38,14 @@ export default function HomeWork({ projects }) {
               {project.thumbnail ? <Image src={project.thumbnail} alt={project.title} fill
                 sizes="(max-width: 700px) 100vw, (max-width: 1200px) 60vw, 750px" />
                 : <span className="say-image-fallback">{project.title}</span>}
-              <span className="say-project-open" aria-hidden="true">↗</span>
+              <span className="say-project-open" aria-hidden="true"><ArrowIcon /></span>
             </div>
             <div className="say-project-caption"><div><h2>{project.title}</h2><p>{(project.categories || []).join(" / ")}</p></div><span>{String(index + 1).padStart(2, "0")}</span></div>
           </Link>
         ))}
       </div>
       {!filtered.length && <p className="py-16 text-center">More work coming soon.</p>}
-      <div className="say-work-end"><span>Different brands. One curious mind.</span><a href="#top">Back to top ↑</a></div>
+      <div className="say-work-end"><span>Different brands. One curious mind.</span><a href="#top">Back to top <ArrowIcon direction="up" /></a></div>
     </section>
   );
 }
