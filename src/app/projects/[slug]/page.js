@@ -1,3 +1,4 @@
+import ProjectGallery from "@/components/ProjectGallery";
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
@@ -23,6 +24,11 @@ async function getProjectFromSanity(slug) {
         description,
         contentBlocks[]{
           ...,
+          images[]{ ..., "dimensions": asset->metadata.dimensions },
+          "image1Dimensions": image1.asset->metadata.dimensions,
+          "image2Dimensions": image2.asset->metadata.dimensions,
+          "image3Dimensions": image3.asset->metadata.dimensions,
+          "image4Dimensions": image4.asset->metadata.dimensions,
           "videoFileUrl": video.asset->url,
           "videoLeftFileUrl": videoLeftFile.asset->url,
           "videoRightFileUrl": videoRightFile.asset->url,
@@ -87,6 +93,7 @@ export default async function ProjectPage({ params }) {
       "3/4": "aspect-[3/4]",
       "9/16": "aspect-[9/16]",
       "16/9": "aspect-video",
+      "4/3": "aspect-[4/3]",
     };
     const aspectClass = (ratio) => aspectMap[ratio] || "aspect-square";
 
@@ -101,7 +108,7 @@ export default async function ProjectPage({ params }) {
       return null;
     };
 
-    const VideoPlayer = ({ src, aspect = "aspect-video", controls = false }) => {
+    const VideoPlayer = ({ src, aspect = "aspect-video", controls = false, fullSize = false, contain = false }) => {
       const embedUrl = getEmbedUrl(src);
       if (embedUrl) {
         return (
@@ -116,12 +123,12 @@ export default async function ProjectPage({ params }) {
         );
       }
       return (
-        <div className={`${aspect} relative rounded-lg overflow-hidden`}>
+        <div className={`${fullSize ? "" : aspect} relative rounded-lg overflow-hidden`}>
           <video
             {...(!controls
               ? { autoPlay: true, muted: true, loop: true, playsInline: true }
               : { controls: true })}
-            className="absolute inset-0 w-full h-full object-cover"
+            className={fullSize ? "block w-full h-auto" : `absolute inset-0 w-full h-full ${contain ? "object-contain" : "object-cover"}`}
           >
             <source src={src} />
           </video>
@@ -254,6 +261,19 @@ export default async function ProjectPage({ params }) {
                   );
                 };
 
+                if (["imageCarousel", "masonryGallery", "imageStrip"].includes(block._type)) {
+                  const images = (block.images || []).filter((image) => image.asset).map((image) => ({
+                    key: image._key || image.asset._ref,
+                    src: urlFor(image.asset).width(1600).quality(85).auto("format").url(),
+                    width: image.dimensions?.width || 1000,
+                    height: image.dimensions?.height || 1000,
+                    alt: image.alt || project.title,
+                    caption: image.caption || "",
+                    link: image.link || "",
+                  }));
+                  return <ProjectGallery key={block._key || index} layout={block._type} heading={block.heading} columns={block.columns} aspectRatio={block.aspectRatio} showCaptions={block.showCaptions} images={images} />;
+                }
+
                 // Block Type 1: Full Width Image
                 if (block._type === "fullWidthImage") {
                   return (
@@ -281,7 +301,7 @@ export default async function ProjectPage({ params }) {
                   return (
                     <div key={index} className="w-full">
                       {wrapLink(
-                        <VideoPlayer src={src} controls={block.autoplay === false} />,
+                        <VideoPlayer src={src} controls={block.autoplay === false} fullSize={block.displaySize === "original"} aspect={aspectClass(block.displaySize === "original" ? "16/9" : block.displaySize || "16/9")} contain={Boolean(block.displaySize && block.displaySize !== "default")} />,
                         block.postLink
                       )}
                     </div>
@@ -321,33 +341,46 @@ export default async function ProjectPage({ params }) {
 
                 // Block Type 3: Four Images Grid
                 if (block._type === "fourImagesGrid") {
-                  const aspect = aspectClass(block.aspectRatio);
-                  const renderGridSlot = (image, videoUrl, alt, postLink) => {
+                  const renderGridSlot = (slot) => {
+                    const image = block[`image${slot}`];
+                    const videoUrl = block[`video${slot}Url`] || block[`video${slot}FileUrl`];
+                    const postLink = block[`postLink${slot}`];
+                    const dimensions = block[`image${slot}Dimensions`];
+                    const ratio = block[`image${slot}AspectRatio`] || "original";
                     let content = null;
-                    if (image) {
-                      content = (
-                        <div className={`relative ${aspect} rounded-lg overflow-hidden`}>
+                    if (image?.asset) {
+                      // Use the asset directly so saved Sanity crops cannot trim the full image.
+                      const src = urlFor(image.asset).width(1400).quality(80).auto("format").url();
+                      const alt = `${project.title} - Image ${slot}`;
+                      content = ratio === "original" ? (
+                        <Image
+                          src={src}
+                          alt={alt}
+                          width={dimensions?.width || 700}
+                          height={dimensions?.height || 700}
+                          sizes="(max-width: 768px) 50vw, 600px"
+                          className="block w-full h-auto rounded-lg"
+                        />
+                      ) : (
+                        <div className={`relative ${ratio === "4/3" ? "aspect-[4/3]" : aspectClass(ratio)} rounded-lg overflow-hidden`}>
                           <Image
-                            src={urlFor(image).width(700).quality(80).auto("format").url()}
+                            src={src}
                             alt={alt}
                             fill
                             sizes="(max-width: 768px) 50vw, 600px"
-                            className="object-cover"
+                            className="object-contain"
                           />
                         </div>
                       );
                     } else if (videoUrl) {
-                      content = <VideoPlayer src={videoUrl} aspect={aspect} />;
+                      content = <VideoPlayer src={videoUrl} aspect={aspectClass(block.aspectRatio)} />;
                     }
                     if (!content) return null;
-                    return wrapLink(content, postLink);
+                    return <div key={slot} className="min-w-0">{wrapLink(content, postLink)}</div>;
                   };
                   return (
-                    <div key={index} className="grid grid-cols-2 gap-8">
-                      {renderGridSlot(block.image1, block.video1Url || block.video1FileUrl, `${project.title} - ${index + 1}`, block.postLink1)}
-                      {renderGridSlot(block.image2, block.video2Url || block.video2FileUrl, `${project.title} - ${index + 2}`, block.postLink2)}
-                      {renderGridSlot(block.image3, block.video3Url || block.video3FileUrl, `${project.title} - ${index + 3}`, block.postLink3)}
-                      {renderGridSlot(block.image4, block.video4Url || block.video4FileUrl, `${project.title} - ${index + 4}`, block.postLink4)}
+                    <div key={index} className="grid grid-cols-2 items-start gap-8">
+                      {[1, 2, 3, 4].map(renderGridSlot)}
                     </div>
                   );
                 }

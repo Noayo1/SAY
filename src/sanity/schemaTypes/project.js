@@ -1,3 +1,5 @@
+import { galleryBlocks } from "./galleryBlocks";
+
 export default {
   name: "project",
   title: "Projects",
@@ -86,6 +88,7 @@ export default {
       type: "array",
       description: "Add and arrange content blocks to build your project page",
       of: [
+        ...galleryBlocks,
         // Block 1: Single Full Width Image
         {
           type: "object",
@@ -149,6 +152,24 @@ export default {
                 accept: "video/*",
               },
               description: "Direct upload for small videos. Use the URL field above for larger files.",
+            },
+            {
+              name: "displaySize",
+              title: "Video — Display Size",
+              description: "Original / Full Video shows uploaded or direct-link videos at their natural proportions without cropping. For YouTube or Vimeo, choose the matching ratio; Original uses 16:9 for embeds. Default preserves the previous 16:9 filled frame. Choose Original explicitly to show the natural proportions. Other shapes keep the complete video visible with space if needed.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Default — Landscape (16:9, fill frame)", value: "default" },
+                  { title: "Original / Full Video (no crop)", value: "original" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                  { title: "Landscape (4:3)", value: "4/3" },
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                ],
+              },
+              initialValue: "default",
             },
             {
               name: "autoplay",
@@ -333,6 +354,24 @@ export default {
               options: { hotspot: true, accept: "image/*" },
               hidden: ({ parent }) => parent?.media1Type === "video",
             },
+            {
+              name: "image1AspectRatio",
+              title: "Image 1 — Display Size",
+              description: "Original shows the full image at its natural proportions. Other shapes keep the full image visible with space around it when needed.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Original / Full Image (no crop)", value: "original" },
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (4:3)", value: "4/3" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+              },
+              initialValue: "original",
+              hidden: ({ parent }) => parent?.media1Type === "video",
+            },
             { name: "video1File", title: "Video 1 — Upload File (Top Left)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media1Type !== "video" },
             { name: "video1Url", title: "Video 1 — Or Paste URL (Top Left)", type: "url", hidden: ({ parent }) => parent?.media1Type !== "video" },
             { name: "hasLink1", title: "Slot 1 — Add link to Instagram", type: "boolean", initialValue: false },
@@ -349,6 +388,24 @@ export default {
               title: "Image 2 (Top Right)",
               type: "image",
               options: { hotspot: true, accept: "image/*" },
+              hidden: ({ parent }) => parent?.media2Type === "video",
+            },
+            {
+              name: "image2AspectRatio",
+              title: "Image 2 — Display Size",
+              description: "Original shows the full image at its natural proportions. Other shapes keep the full image visible with space around it when needed.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Original / Full Image (no crop)", value: "original" },
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (4:3)", value: "4/3" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+              },
+              initialValue: "original",
               hidden: ({ parent }) => parent?.media2Type === "video",
             },
             { name: "video2File", title: "Video 2 — Upload File (Top Right)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media2Type !== "video" },
@@ -369,6 +426,24 @@ export default {
               options: { hotspot: true, accept: "image/*" },
               hidden: ({ parent }) => parent?.media3Type === "video",
             },
+            {
+              name: "image3AspectRatio",
+              title: "Image 3 — Display Size",
+              description: "Original shows the full image at its natural proportions. Other shapes keep the full image visible with space around it when needed.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Original / Full Image (no crop)", value: "original" },
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (4:3)", value: "4/3" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+              },
+              initialValue: "original",
+              hidden: ({ parent }) => parent?.media3Type === "video",
+            },
             { name: "video3File", title: "Video 3 — Upload File (Bottom Left)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media3Type !== "video" },
             { name: "video3Url", title: "Video 3 — Or Paste URL (Bottom Left)", type: "url", hidden: ({ parent }) => parent?.media3Type !== "video" },
             { name: "hasLink3", title: "Slot 3 — Add link to Instagram", type: "boolean", initialValue: false },
@@ -387,14 +462,32 @@ export default {
               options: { hotspot: true, accept: "image/*" },
               hidden: ({ parent }) => parent?.media4Type === "video",
             },
+            {
+              name: "image4AspectRatio",
+              title: "Image 4 — Display Size",
+              description: "Original shows the full image at its natural proportions. Other shapes keep the full image visible with space around it when needed.",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Original / Full Image (no crop)", value: "original" },
+                  { title: "Square (1:1)", value: "1/1" },
+                  { title: "Portrait (3:4)", value: "3/4" },
+                  { title: "Portrait (9:16)", value: "9/16" },
+                  { title: "Landscape (4:3)", value: "4/3" },
+                  { title: "Landscape (16:9)", value: "16/9" },
+                ],
+              },
+              initialValue: "original",
+              hidden: ({ parent }) => parent?.media4Type === "video",
+            },
             { name: "video4File", title: "Video 4 — Upload File (Bottom Right)", type: "file", options: { accept: "video/*" }, description: "Upload a video file (MP4, MOV, etc.)", hidden: ({ parent }) => parent?.media4Type !== "video" },
             { name: "video4Url", title: "Video 4 — Or Paste URL (Bottom Right)", type: "url", hidden: ({ parent }) => parent?.media4Type !== "video" },
             { name: "hasLink4", title: "Slot 4 — Add link to Instagram", type: "boolean", initialValue: false },
             { name: "postLink4", title: "Slot 4 — Instagram URL", type: "url", hidden: ({ parent }) => !parent?.hasLink4 },
             {
               name: "aspectRatio",
-              title: "Aspect Ratio",
-              description: "Choose the display shape for all slots.",
+              title: "Video Aspect Ratio",
+              description: "Display shape for video slots. Each image has its own Display Size setting above.",
               type: "string",
               options: {
                 list: [
