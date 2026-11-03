@@ -19,7 +19,7 @@ async function getSanityProjects() {
   }
 }
 
-export async function getAllProjects() {
+export async function getAllProjects({ thumbnailWidth = 500 } = {}) {
   const sanityProjects = await getSanityProjects();
 
   return [
@@ -27,7 +27,7 @@ export async function getAllProjects() {
       ...p,
       source: "sanity",
       slug: p.slug.current,
-      thumbnail: p.thumbnail ? urlFor(p.thumbnail).width(500).quality(80).auto("format").url() : null,
+      thumbnail: p.thumbnail ? urlFor(p.thumbnail).width(thumbnailWidth).quality(80).auto("format").url() : null,
     })),
   ];
 }

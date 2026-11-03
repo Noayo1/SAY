@@ -15,18 +15,19 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight - 1);
+      setScrolled(window.scrollY > (pathname === "/" ? 64 : window.innerHeight - 1));
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const textColor = isDark ? "text-white" : "text-black";
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        isStudioSection ? "bg-[#0c0c0c]" : scrolled || isProjectsSection ? "bg-white" : "bg-transparent"
+        isStudioSection ? "bg-[#0c0c0c]" : pathname === "/" && scrolled ? "bg-[#f4f3ee]" : scrolled || isProjectsSection ? "bg-white" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
