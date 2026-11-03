@@ -1,3 +1,5 @@
+import { cache } from "react";
+import { normalizeProjectSlug } from "@/lib/projectUrls";
 import ProjectGallery from "@/components/ProjectGallery";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,10 +10,9 @@ import { notFound } from "next/navigation";
 export const dynamicParams = true;
 
 // Fetch project data from Sanity
-async function getProjectFromSanity(slug) {
+const getProjectFromSanity = cache(async (slug) => {
   try {
-    const project = await client.fetch(
-      `*[_type == "project" && slug.current == $slug][0]{
+    const query = `*[_type == "project" && slug.current == $slug][0]{
         _id,
         title,
         slug,
@@ -37,14 +38,20 @@ async function getProjectFromSanity(slug) {
           "video3FileUrl": video3File.asset->url,
           "video4FileUrl": video4File.asset->url
         }
-      }`,
-      { slug }
-    );
+      }`;
+    let project = await client.fetch(query, { slug });
+    if (!project) {
+      // Resolve clean URLs and legacy links against the original stored slug.
+      const slugs = await client.fetch(`*[_type == "project" && defined(slug.current)]{"slug": slug.current}`);
+      const match = slugs.find((item) => normalizeProjectSlug(item.slug) === normalizeProjectSlug(slug));
+      if (match) project = await client.fetch(query, { slug: match.slug });
+    }
     return project;
   } catch (error) {
-    return null;
+    console.error("Error fetching project:", error);
+    throw error;
   }
-}
+});
 
 export async function generateStaticParams() {
   let sanityProjects = [];
@@ -57,7 +64,7 @@ export async function generateStaticParams() {
   }
 
   return sanityProjects.map((project) => ({
-    slug: project.slug,
+    slug: normalizeProjectSlug(project.slug),
   }));
 }
 

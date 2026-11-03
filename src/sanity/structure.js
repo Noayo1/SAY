@@ -1,3 +1,4 @@
+import { projectHref } from "@/lib/projectUrls";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
 function ProjectPreview(props) {
@@ -11,7 +12,7 @@ function ProjectPreview(props) {
   }
   return (
     <iframe
-      src={`/projects/${slug}`}
+      src={projectHref(slug)}
       style={{ width: "100%", height: "100%", border: "none" }}
       title="Project Preview"
     />

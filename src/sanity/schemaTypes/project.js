@@ -1,3 +1,4 @@
+import { orderRankField } from "@sanity/orderable-document-list";
 import { galleryBlocks } from "./galleryBlocks";
 
 export default {
@@ -46,11 +47,7 @@ export default {
         ],
       },
     },
-    {
-      name: "orderRank",
-      type: "string",
-      hidden: true,
-    },
+    orderRankField({ type: "project" }),
     {
       name: "thumbnail",
       title: "Thumbnail Image (Project Grid)",

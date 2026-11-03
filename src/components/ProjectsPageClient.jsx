@@ -1,4 +1,5 @@
 "use client";
+import { projectHref } from "@/lib/projectUrls";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -72,7 +73,7 @@ export default function ProjectsPageClient({ projects, noPadTop = false }) {
             {filtered.map((project) => (
               <Link
                 key={project.source === "sanity" ? project._id : project.id}
-                href={`/projects/${project.slug}`}
+                href={projectHref(project.slug)}
                 className="group"
               >
                 <div className="aspect-square sm:aspect-[3/4] bg-neutral-100 overflow-hidden relative">
