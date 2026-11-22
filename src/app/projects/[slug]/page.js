@@ -26,6 +26,9 @@ const getProjectFromSanity = cache(async (slug) => {
         contentBlocks[]{
           ...,
           images[]{ ..., "dimensions": asset->metadata.dimensions },
+          "imageDimensions": image.asset->metadata.dimensions,
+          "imageLeftDimensions": imageLeft.asset->metadata.dimensions,
+          "imageRightDimensions": imageRight.asset->metadata.dimensions,
           "image1Dimensions": image1.asset->metadata.dimensions,
           "image2Dimensions": image2.asset->metadata.dimensions,
           "image3Dimensions": image3.asset->metadata.dimensions,
@@ -144,7 +147,7 @@ export default async function ProjectPage({ params }) {
     };
 
     return (
-      <div className="min-h-screen bg-white">
+      <div className="project-detail min-h-screen bg-white">
         {/* Back Button */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Link
@@ -179,7 +182,7 @@ export default async function ProjectPage({ params }) {
             )}
 
             {/* Title */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-5 md:mb-8">
               {project.title}
             </h1>
 
@@ -247,7 +250,7 @@ export default async function ProjectPage({ params }) {
         {project.description && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
             <div className="text-center max-w-3xl mx-auto">
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p dir="auto" className="text-lg text-gray-700 leading-relaxed">
                 {project.description}
               </p>
             </div>
@@ -286,7 +289,7 @@ export default async function ProjectPage({ params }) {
                   return (
                     <div key={index} className="w-full">
                       {wrapLink(
-                        <div className="relative aspect-video rounded-lg overflow-hidden">
+                        <div className="project-image-frame relative aspect-video rounded-lg overflow-hidden" style={{ "--project-image-ratio": block.imageDimensions ? `${block.imageDimensions.width} / ${block.imageDimensions.height}` : undefined }}>
                           <Image
                             src={urlFor(block.image).width(1400).quality(80).auto("format").url()}
                             alt={`${project.title} - Image ${index + 1}`}
@@ -318,16 +321,16 @@ export default async function ProjectPage({ params }) {
                 // Block Type 2: Two Media Side by Side
                 if (block._type === "twoImages") {
                   const aspect = aspectClass(block.aspectRatio);
-                  const renderSlot = (image, videoUrl, alt, postLink) => {
+                  const renderSlot = (image, videoUrl, alt, postLink, dimensions) => {
                     let content = null;
                     if (image) {
                       content = (
-                        <div className={`relative ${aspect} rounded-lg overflow-hidden`}>
+                        <div className={`project-image-frame relative ${aspect} rounded-lg overflow-hidden`} style={{ "--project-image-ratio": dimensions ? `${dimensions.width} / ${dimensions.height}` : undefined }}>
                           <Image
                             src={urlFor(image).width(700).quality(80).auto("format").url()}
                             alt={alt}
                             fill
-                            sizes="(max-width: 768px) 50vw, 600px"
+                            sizes="(max-width: 767px) 100vw, 600px"
                             className="object-cover"
                           />
                         </div>
@@ -339,9 +342,9 @@ export default async function ProjectPage({ params }) {
                     return wrapLink(content, postLink);
                   };
                   return (
-                    <div key={index} className="grid grid-cols-2 gap-8">
-                      {renderSlot(block.imageLeft, block.videoLeftUrl || block.videoLeftFileUrl, `${project.title} - ${index + 1}`, block.postLinkLeft)}
-                      {renderSlot(block.imageRight, block.videoRightUrl || block.videoRightFileUrl, `${project.title} - ${index + 2}`, block.postLinkRight)}
+                    <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+                      {renderSlot(block.imageLeft, block.videoLeftUrl || block.videoLeftFileUrl, `${project.title} - ${index + 1}`, block.postLinkLeft, block.imageLeftDimensions)}
+                      {renderSlot(block.imageRight, block.videoRightUrl || block.videoRightFileUrl, `${project.title} - ${index + 2}`, block.postLinkRight, block.imageRightDimensions)}
                     </div>
                   );
                 }
@@ -365,16 +368,16 @@ export default async function ProjectPage({ params }) {
                           alt={alt}
                           width={dimensions?.width || 700}
                           height={dimensions?.height || 700}
-                          sizes="(max-width: 768px) 50vw, 600px"
+                          sizes="(max-width: 767px) 100vw, 600px"
                           className="block w-full h-auto rounded-lg"
                         />
                       ) : (
-                        <div className={`relative ${ratio === "4/3" ? "aspect-[4/3]" : aspectClass(ratio)} rounded-lg overflow-hidden`}>
+                        <div className={`project-image-frame relative ${ratio === "4/3" ? "aspect-[4/3]" : aspectClass(ratio)} rounded-lg overflow-hidden`} style={{ "--project-image-ratio": dimensions ? `${dimensions.width} / ${dimensions.height}` : undefined }}>
                           <Image
                             src={src}
                             alt={alt}
                             fill
-                            sizes="(max-width: 768px) 50vw, 600px"
+                            sizes="(max-width: 767px) 100vw, 600px"
                             className="object-contain"
                           />
                         </div>
@@ -386,7 +389,7 @@ export default async function ProjectPage({ params }) {
                     return <div key={slot} className="min-w-0">{wrapLink(content, postLink)}</div>;
                   };
                   return (
-                    <div key={index} className="grid grid-cols-2 items-start gap-8">
+                    <div key={index} className="grid grid-cols-1 md:grid-cols-2 items-start gap-5 md:gap-8">
                       {[1, 2, 3, 4].map(renderGridSlot)}
                     </div>
                   );
@@ -395,7 +398,7 @@ export default async function ProjectPage({ params }) {
                 // Block Type 4: Image + Text
                 if (block._type === "imageText") {
                   const imageEl = (
-                    <div className="relative aspect-square rounded-lg overflow-hidden order-2 md:order-none">
+                    <div className="project-image-frame relative aspect-square rounded-lg overflow-hidden" style={{ "--project-image-ratio": block.imageDimensions ? `${block.imageDimensions.width} / ${block.imageDimensions.height}` : undefined }}>
                       <Image
                         src={urlFor(block.image).width(700).quality(80).auto("format").url()}
                         alt={`${project.title}`}
@@ -416,7 +419,7 @@ export default async function ProjectPage({ params }) {
                     </div>
                   );
                   return (
-                    <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
                       {block.imagePosition === "left" ? (
                         <>
                           {wrapLink(imageEl, block.postLink)}
@@ -426,7 +429,7 @@ export default async function ProjectPage({ params }) {
                         <>
                           {textEl}
                           {wrapLink(
-                            <div className="relative aspect-square rounded-lg overflow-hidden">
+                            <div className="project-image-frame relative aspect-square rounded-lg overflow-hidden" style={{ "--project-image-ratio": block.imageDimensions ? `${block.imageDimensions.width} / ${block.imageDimensions.height}` : undefined }}>
                               <Image
                                 src={urlFor(block.image).width(700).quality(80).auto("format").url()}
                                 alt={`${project.title}`}
@@ -473,10 +476,10 @@ export default async function ProjectPage({ params }) {
         </div>
 
         {/* Back to Projects Button */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 border-t border-neutral-200 mt-8 md:mt-12">
           <Link
             href="/projects"
-            className="inline-block px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition font-medium"
+            className="inline-flex items-center justify-center rounded-full border border-neutral-300 px-5 py-2.5 text-xs font-medium tracking-wide text-neutral-800 transition-colors hover:border-neutral-900 hover:bg-neutral-900 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-800"
           >
             View All Projects
           </Link>
