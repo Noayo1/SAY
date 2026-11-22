@@ -22,6 +22,7 @@ export default function HomeWork({ projects }) {
         <h1 id="work-heading">Selected<br /><span>work.</span><sup>({String(projects.length).padStart(2, "0")})</sup></h1>
         <p>Branding, culture &amp; everything in between.<br /> Ideas with a point of view.<br /> Made to be seen. Made to be felt.</p>
       </div>
+      <nav className="say-view-switch" aria-label="Project gallery view"><span aria-current="page">Grid view</span><Link href="/playground">Playground <ArrowIcon /></Link></nav>
       <div className="say-filters" aria-label="Filter projects">
         {categories.map((item) => (
           <button key={item} type="button" onClick={() => setCategory(item)} aria-pressed={category === item}

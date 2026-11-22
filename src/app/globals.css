@@ -64,8 +64,8 @@ body {
 .say-footer { background: var(--say-accent); padding: 38px 5% 24px; margin-top: 70px; }
 .say-contact-title { display: block; position: relative; font-size: clamp(56px, 9vw, 140px); letter-spacing: -.07em; line-height: .95; padding: 65px 12% 65px 0; }
 .say-contact-title em { font-style: normal; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 12px; }
-.say-contact-title > span { position: absolute; right: 0; top: 60px; transition: transform .2s; }
-.say-contact-title:hover > span { transform: translate(6px,-6px); }
+.say-contact-title > .say-contact-arrow { position: absolute; right: 0; top: 60px; transition: transform .2s; }
+.say-contact-title:hover > .say-contact-arrow { transform: translate(6px,-6px); }
 .say-footer-bottom { border-top: 1px solid #19191940; padding-top: 24px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 11px; }
 .say-home a:focus-visible, .say-home button:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
 @media (max-width: 700px) {
@@ -86,7 +86,7 @@ body {
   .say-work-end { padding-top: 25px; font-size: 10px; }
   .say-footer { margin-top: 25px; }
   .say-contact-title { padding: 50px 0; font-size: 13vw; }
-  .say-contact-title > span { top: 45px; }
+  .say-contact-title > .say-contact-arrow { top: 45px; }
   .say-footer-bottom { font-size: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -96,7 +96,7 @@ body {
 
 /* Vector arrows render consistently on iOS, Android and desktop. */
 .say-project-open svg { width: 23px; height: 23px; }
-.say-contact-title > span svg { width: .8em; height: .8em; }
+.say-contact-title > .say-contact-arrow svg { width: .8em; height: .8em; }
 .say-work-end a, .say-footer-bottom a { display: inline-flex; align-items: center; gap: 6px; }
 .say-work-end svg, .say-footer-bottom svg { width: 14px; height: 14px; }
 @media (max-width: 700px) {
@@ -181,7 +181,20 @@ body {
     letter-spacing: -.055em;
     padding: 44px 44px 44px 0;
   }
-  .say-contact-title > span { top: 46px; right: 0; width: 28px; height: 28px; }
-  .say-contact-title > span svg { width: 100%; height: 100%; }
+  .say-contact-title > .say-contact-arrow { top: 46px; right: 0; width: 28px; height: 28px; }
+  .say-contact-title > .say-contact-arrow svg { width: 100%; height: 100%; }
   .say-contact-title em { text-underline-offset: 8px; text-decoration-thickness: 2px; }
+}
+
+.say-view-switch { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:22px; padding-bottom:18px; font-size:11px; }
+.say-view-switch > span { color:#76736a; }
+.say-view-switch a { display:inline-flex; align-items:center; gap:8px; padding:9px 14px; border:1px solid #19191935; border-radius:30px; transition:background .2s; }
+.say-view-switch a:hover { background:var(--say-accent); }
+.say-view-switch svg { width:15px; height:15px; }
+@media (max-width:700px) {
+ .say-contact-title { display:inline-flex; align-items:flex-start; gap:12px; max-width:100%; padding:44px 0; }
+ .say-contact-copy { display:block; min-width:0; }
+ .say-contact-title > .say-contact-arrow { position:static; flex:0 0 28px; margin-top:3px; }
+ .say-view-switch { justify-content:space-between; gap:14px; padding-bottom:16px; }
+ .say-view-switch a { min-height:40px; padding:9px 13px; }
 }

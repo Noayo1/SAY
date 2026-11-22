@@ -16,7 +16,7 @@ export default async function Home() {
         <HomeWork projects={projects} />
         <footer className="say-footer">
           <div className="say-section-note"><span><i /> Next up: your next big idea.</span><span>Open for conversations</span></div>
-          <a className="say-contact-title" href={`mailto:${siteConfig.contact.email}`}>Have something<br />to <em>SAY?</em><span aria-hidden="true"><ArrowIcon /></span></a>
+          <a className="say-contact-title" href={`mailto:${siteConfig.contact.email}`}><span className="say-contact-copy">Have something<br />to <em>SAY?</em></span><span className="say-contact-arrow" aria-hidden="true"><ArrowIcon /></span></a>
           <div className="say-footer-bottom"><a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a><a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer">Instagram <ArrowIcon /></a><span>SAY Creative © {new Date().getFullYear()}</span></div>
         </footer>
       </div>
