@@ -83,3 +83,53 @@
 
 .spatial-card-label > span:last-child { display:inline-flex; align-items:center; gap:4px; }
 .spatial-card-label svg { width:10px; height:10px; }
+
+/* Mobile gallery: aligned information, a dedicated stage and separate controls. */
+@media (max-width:700px) {
+ .spatial-page { padding:76px 20px 22px; }
+ .spatial-topline { align-items:center; min-height:40px; padding-bottom:12px; gap:14px; }
+ .spatial-topline > span { max-width:185px; line-height:1.5; }
+ .spatial-topline button { padding:10px 0 10px 8px; }
+ .spatial-experience { display:flex; flex-direction:column; height:auto; min-height:0; max-height:none; }
+ .spatial-info { position:relative; top:auto; left:auto; width:100%; padding-top:24px; }
+ .spatial-eyebrow { margin-bottom:12px; font-size:9px; }
+ .spatial-info h1 { font-size:clamp(24px,6.8vw,32px); line-height:1.1; letter-spacing:-.04em; max-width:100%; min-height:2.2em; margin-bottom:16px; text-wrap:balance; }
+ .spatial-info dl { border-bottom:1px solid #20201e50; }
+ .spatial-info dl > div, .spatial-info dl > div:first-child { display:flex; align-items:baseline; min-height:36px; padding:10px 0; gap:20px; }
+ .spatial-info dt { flex-shrink:0; font-size:9px; }
+ .spatial-info dd { max-width:72%; font-size:10px; line-height:1.5; }
+ .spatial-stage { position:relative; inset:auto; width:calc(100% + 40px); margin-inline:-20px; height:clamp(340px,105vw,510px); flex-shrink:0; overflow:hidden; }
+ .spatial-card { top:50%; left:50%; width:58vw; max-width:300px; }
+ .spatial-card[data-position="0"] { transform:translate(-50%,-50%) rotateY(-4deg); }
+ .spatial-card[data-position="1"] { transform:translate(29%,-50%) rotate(7deg) rotateY(-22deg) scale(.78); }
+ .spatial-card[data-position="-1"] { transform:translate(-129%,-50%) rotate(-7deg) rotateY(22deg) scale(.78); }
+ .spatial-watermark { top:45%; left:0; font-size:46vw; }
+ .spatial-bottom { position:relative; inset:auto; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px 16px; padding:18px 0 22px; border-top:1px solid #20201e35; align-items:start; }
+ .spatial-controls { grid-column:1 / -1; grid-row:1; justify-content:space-between; gap:18px; }
+ .spatial-controls button { width:44px; height:44px; }
+ .spatial-controls > span { font-size:12px; }
+ .spatial-bottom > p:first-child { grid-column:1; grid-row:2; font-size:12px; line-height:1.5; }
+ .spatial-bottom p span { display:block; margin-top:3px; font-size:8px; line-height:1.5; }
+ .spatial-bottom .spatial-hint { display:block; grid-column:2; grid-row:2; font-size:9px; line-height:1.6; text-align:right; }
+ .spatial-footer { display:grid; grid-template-columns:1fr 1fr; align-items:start; gap:18px; padding-top:16px; font-size:8px; line-height:1.6; }
+ .spatial-footer > span { max-width:none; }
+ .spatial-footer a { justify-content:flex-end; text-align:right; }
+ .spatial-footer svg { flex-shrink:0; }
+ .spatial-index { padding:20px 0; }
+ .spatial-index button { min-height:48px; font-size:15px; }
+}
+
+.spatial-intro { position:relative; height:100svh; min-height:450px; overflow:hidden; background:#20201e; }
+.spatial-intro::after { content:""; position:absolute; inset:55% 0 0; background:linear-gradient(transparent,rgba(0,0,0,.5)); pointer-events:none; }
+.spatial-intro-caption { position:absolute; z-index:1; bottom:34px; left:4%; right:4%; display:flex; justify-content:space-between; align-items:flex-end; gap:24px; color:#fff; }
+.spatial-intro-caption p { font-size:clamp(24px,3vw,42px); letter-spacing:-.04em; line-height:1.08; }
+.spatial-intro-caption a { display:inline-flex; align-items:center; gap:14px; font-size:12px; }
+.spatial-intro-caption a > span { display:grid; place-items:center; width:44px; height:44px; border:1px solid #ffffff80; border-radius:50%; flex-shrink:0; }
+.spatial-intro-caption a:focus-visible { outline:2px solid #fff; outline-offset:5px; }
+#spatial-work { scroll-margin-top:64px; }
+@media (max-width:700px) {
+ .spatial-intro-caption { bottom:28px; left:20px; right:20px; align-items:flex-start; flex-direction:column; gap:22px; }
+ .spatial-intro-caption p { font-size:26px; }
+ .spatial-intro-caption a { font-size:11px; }
+ #spatial-work > .spatial-page { padding-top:24px; }
+}
